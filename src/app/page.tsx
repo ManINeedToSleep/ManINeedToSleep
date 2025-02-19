@@ -1,24 +1,31 @@
 "use client";
 
-import Balatro from "@/components/animation/Balatro";
-import CombinedText from "@/components/animation/CombinedText";
+import Balatro from "@/components/themes/Balatro";
 import { useState } from "react";
+import CombinedText from "@/components/animation/Text/CombinedText";
+import FuzzyButton from "@/components/animation/FuzzyButton";
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const router = useRouter();
   const [stage, setStage] = useState<'confused' | 'welcoming' | 'enter'>('confused');
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleGuestResponse = () => {
     if (stage === 'confused') {
       setStage('welcoming');
     } else if (stage === 'welcoming') {
-      setStage('enter');
+      setIsTransitioning(true);
+      setTimeout(() => {
+        router.push('/introduction');
+      }, 1500); // Match this with the animation duration
     }
   };
 
   return (
-    <main className="relative w-full h-screen">
+    <main className={`relative w-full h-screen overflow-hidden ${isTransitioning ? 'zoom-transition' : ''}`}>
       {/* Background Animation */}
-      <div className="absolute inset-0 z-0">
+      <div className={`absolute inset-0 z-0 transition-transform duration-1500 ${isTransitioning ? 'scale-[10]' : ''}`}>
         <Balatro
           color1="#1a237e"
           color2="#000000"
@@ -31,7 +38,8 @@ export default function Home() {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full text-white">
+      <div className={`relative z-10 flex flex-col items-center justify-center w-full h-full text-white
+        transition-all duration-1500 ${isTransitioning ? 'opacity-0 scale-50' : ''}`}>
         <div className="max-w-4xl px-6 text-center">
           {stage === 'confused' && (
             <>
@@ -40,23 +48,20 @@ export default function Home() {
                 fontSize="4rem"
                 baseIntensity={0.3}
                 hoverIntensity={0.6}
-                decryptSpeed={70}
-                className="mb-6"
+                delay={0}
+                className="mb-6 min-h-[4rem]"
               />
               <CombinedText
                 text="Who are you..."
                 fontSize="2rem"
                 baseIntensity={0.2}
                 hoverIntensity={0.4}
-                decryptSpeed={50}
+                delay={500}
                 className="mb-8"
               />
-              <button 
-                onClick={handleGuestResponse}
-                className="px-8 py-3 text-lg font-semibold transition-all duration-300 border-2 border-white rounded-full hover:bg-white hover:text-black"
-              >
+              <FuzzyButton onClick={handleGuestResponse}>
                 I am a guest
-              </button>
+              </FuzzyButton>
             </>
           )}
 
@@ -68,7 +73,7 @@ export default function Home() {
                   fontSize="4rem"
                   baseIntensity={0.2}
                   hoverIntensity={0.4}
-                  decryptSpeed={50}
+                  delay={0}
                   className="mb-4"
                 />
                 <CombinedText
@@ -76,7 +81,7 @@ export default function Home() {
                   fontSize="2rem"
                   baseIntensity={0.15}
                   hoverIntensity={0.35}
-                  decryptSpeed={40}
+                  delay={500}
                   className="mb-4"
                 />
                 <CombinedText
@@ -84,15 +89,12 @@ export default function Home() {
                   fontSize="3rem"
                   baseIntensity={0.25}
                   hoverIntensity={0.45}
-                  decryptSpeed={60}
+                  delay={1000}
                 />
               </div>
-              <button 
-                onClick={handleGuestResponse}
-                className="px-8 py-3 text-lg font-semibold transition-all duration-300 border-2 border-white rounded-full hover:bg-white hover:text-black animate-pulse"
-              >
+              <FuzzyButton onClick={handleGuestResponse}>
                 Enter
-              </button>
+              </FuzzyButton>
             </>
           )}
 
@@ -103,7 +105,7 @@ export default function Home() {
                 fontSize="2rem"
                 baseIntensity={0.3}
                 hoverIntensity={0.5}
-                decryptSpeed={30}
+                delay={30}
               />
             </div>
           )}

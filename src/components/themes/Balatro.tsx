@@ -20,7 +20,7 @@ interface BalatroProps {
 }
 
 function hexToVec4(hex: string): [number, number, number, number] {
-  let hexStr = hex.replace("#", "");
+  const hexStr = hex.replace("#", "");
   let r = 0,
     g = 0,
     b = 0,
@@ -138,31 +138,31 @@ export default function Balatro({
   mouseInteraction = true,
 }: BalatroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const rendererRef = useRef<Renderer | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
     const container = containerRef.current;
-    const renderer = new Renderer();
-    const gl = renderer.gl;
-    gl.clearColor(0, 0, 0, 1);
-
-    let program: Program;
-
-    function resize() {
-      renderer.setSize(container.offsetWidth, container.offsetHeight);
-      if (program) {
-        program.uniforms.iResolution.value = [
-          gl.canvas.width,
-          gl.canvas.height,
-          gl.canvas.width / gl.canvas.height,
-        ];
-      }
+    
+    // Initialize renderer only if it doesn't exist
+    if (!rendererRef.current) {
+      rendererRef.current = new Renderer({
+        width: container.offsetWidth,
+        height: container.offsetHeight,
+        dpr: Math.min(window.devicePixelRatio, 2),
+        alpha: true,
+        premultipliedAlpha: true,
+        antialias: true
+      });
     }
-    window.addEventListener("resize", resize);
-    resize();
+    const renderer = rendererRef.current;
+    const gl = renderer.gl;
+    gl.clearColor(0, 0, 0, 0);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
-    const geometry = new Triangle(gl);
-    program = new Program(gl, {
+    // Create program first
+    const program = new Program(gl, {
       vertex: vertexShader,
       fragment: fragmentShader,
       uniforms: {
@@ -190,17 +190,35 @@ export default function Balatro({
       },
     });
 
-    const mesh = new Mesh(gl, { geometry, program });
-    let animationFrameId: number;
+    // Then create resize handler that uses the program
+    const handleResize = () => {
+      if (container) {
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+        program.uniforms.iResolution.value = [
+          gl.canvas.width,
+          gl.canvas.height,
+          gl.canvas.width / gl.canvas.height,
+        ];
+      }
+    };
 
+    // Add event listeners
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial size
+
+    // Create geometry and mesh
+    const geometry = new Triangle(gl);
+    const mesh = new Mesh(gl, { geometry, program });
+    
+    // Animation setup
+    let animationFrameId: number;
     function update(time: number) {
       animationFrameId = requestAnimationFrame(update);
       program.uniforms.iTime.value = time * 0.001;
       renderer.render({ scene: mesh });
     }
-    animationFrameId = requestAnimationFrame(update);
-    container.appendChild(gl.canvas);
 
+    // Mouse interaction
     function handleMouseMove(e: MouseEvent) {
       if (!mouseInteraction) return;
       const rect = container.getBoundingClientRect();
@@ -208,14 +226,20 @@ export default function Balatro({
       const y = 1.0 - (e.clientY - rect.top) / rect.height;
       program.uniforms.uMouse.value = [x, y];
     }
+
+    // Start everything
+    animationFrameId = requestAnimationFrame(update);
+    container.appendChild(gl.canvas);
     container.addEventListener("mousemove", handleMouseMove);
 
+    // Cleanup
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener("resize", resize);
+      window.removeEventListener('resize', handleResize);
       container.removeEventListener("mousemove", handleMouseMove);
-      container.removeChild(gl.canvas);
-      gl.getExtension("WEBGL_lose_context")?.loseContext();
+      if (container.contains(gl.canvas)) {
+        container.removeChild(gl.canvas);
+      }
     };
   }, [
     spinRotation,
@@ -233,5 +257,16 @@ export default function Balatro({
     mouseInteraction,
   ]);
 
-  return <div ref={containerRef} className="w-full h-full" />;
+  // Cleanup renderer on component unmount
+  useEffect(() => {
+    return () => {
+      if (rendererRef.current) {
+        const gl = rendererRef.current.gl;
+        gl.getExtension("WEBGL_lose_context")?.loseContext();
+        rendererRef.current = null;
+      }
+    };
+  }, []);
+
+  return <div ref={containerRef} className="w-full h-full absolute inset-0 transition-opacity duration-500" />;
 }

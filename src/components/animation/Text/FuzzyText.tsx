@@ -9,6 +9,12 @@ interface FuzzyTextProps {
   enableHover?: boolean;
   baseIntensity?: number;
   hoverIntensity?: number;
+  textShadow?: string;
+}
+
+// Add a custom type for the canvas cleanup function
+interface CanvasWithCleanup extends HTMLCanvasElement {
+  cleanupFuzzyText?: () => void;
 }
 
 const FuzzyText: React.FC<FuzzyTextProps> = ({
@@ -20,23 +26,23 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
   enableHover = true,
   baseIntensity = 0.18,
   hoverIntensity = 0.5,
+  textShadow = "0 0 15px rgba(0,0,0,0.6), 0 0 30px rgba(0,0,0,0.4), 0 0 45px rgba(0,0,0,0.2)"
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     let animationFrameId: number;
     let isCancelled = false;
-    const canvas = canvasRef.current;
+    const canvas = canvasRef.current as CanvasWithCleanup;
     if (!canvas) return;
+
+    const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 
     const init = async () => {
       if (document.fonts?.ready) {
         await document.fonts.ready;
       }
       if (isCancelled) return;
-
-      const ctx = canvas.getContext("2d");
-      if (!ctx) return;
 
       const computedFontFamily =
         fontFamily === "inherit"
@@ -102,7 +108,7 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
       let isHovering = false;
       const fuzzRange = 30;
 
-      const run = () => {
+      const animate = (): void => {
         if (isCancelled) return;
         ctx.clearRect(
           -fuzzRange,
@@ -125,10 +131,10 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
             1
           );
         }
-        animationFrameId = window.requestAnimationFrame(run);
+        animationFrameId = window.requestAnimationFrame(animate);
       };
 
-      run();
+      animate();
 
       const isInsideTextArea = (x: number, y: number) =>
         x >= interactiveLeft &&
@@ -136,11 +142,11 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
         y >= interactiveTop &&
         y <= interactiveBottom;
 
-      const handleMouseMove = (e: MouseEvent) => {
+      const handleMouseMove = (event: MouseEvent): void => {
         if (!enableHover) return;
         const rect = canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
         isHovering = isInsideTextArea(x, y);
       };
 
@@ -181,7 +187,7 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
         }
       };
 
-      (canvas as any).cleanupFuzzyText = cleanup;
+      canvas.cleanupFuzzyText = cleanup;
     };
 
     init();
@@ -189,8 +195,8 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
     return () => {
       isCancelled = true;
       window.cancelAnimationFrame(animationFrameId);
-      if (canvas && (canvas as any).cleanupFuzzyText) {
-        (canvas as any).cleanupFuzzyText();
+      if (canvas && canvas.cleanupFuzzyText) {
+        canvas.cleanupFuzzyText();
       }
     };
   }, [
@@ -204,7 +210,7 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
     hoverIntensity,
   ]);
 
-  return <canvas ref={canvasRef} />;
+  return <canvas ref={canvasRef} style={{ filter: `drop-shadow(${textShadow})` }} />;
 };
 
 export default FuzzyText;
