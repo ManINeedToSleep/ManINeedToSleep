@@ -27,7 +27,7 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
   baseIntensity = 0.18,
   hoverIntensity = 0.5,
   textShadow = "0 0 15px rgba(0,0,0,0.6), 0 0 30px rgba(0,0,0,0.4), 0 0 45px rgba(0,0,0,0.2)"
-}) => {
+}: FuzzyTextProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
