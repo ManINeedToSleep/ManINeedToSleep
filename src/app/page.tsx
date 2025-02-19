@@ -5,6 +5,7 @@ import { useState } from "react";
 import CombinedText from "@/components/animation/Text/CombinedText";
 import FuzzyButton from "@/components/animation/FuzzyButton";
 import { useRouter } from 'next/navigation';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 export default function Home() {
   const router = useRouter();
@@ -26,15 +27,17 @@ export default function Home() {
     <main className={`relative w-full h-screen overflow-hidden ${isTransitioning ? 'zoom-transition' : ''}`}>
       {/* Background Animation */}
       <div className={`absolute inset-0 z-0 transition-transform duration-1500 ${isTransitioning ? 'scale-[10]' : ''}`}>
-        <Balatro
-          color1="#1a237e"
-          color2="#000000"
-          color3="#4a148c"
-          isRotate={true}
-          spinSpeed={3.0}
-          contrast={4.0}
-          lighting={0.5}
-        />
+        <ErrorBoundary>
+          <Balatro
+            color1="#1a237e"
+            color2="#000000"
+            color3="#4a148c"
+            isRotate={true}
+            spinSpeed={3.0}
+            contrast={4.0}
+            lighting={0.5}
+          />
+        </ErrorBoundary>
       </div>
 
       {/* Content Overlay */}

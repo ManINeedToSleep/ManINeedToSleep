@@ -1,19 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
+    domains: ['github.com'], // If you're using GitHub images
+  },
   webpack: (config) => {
     config.module.rules.push({
-      test: /\.(glb|gltf)$/,
-      type: 'asset/resource',
-      generator: {
-        filename: 'static/chunks/[path][name][ext]'
-      }
+      test: /\.(glsl|vs|fs|vert|frag)$/,
+      type: 'asset/source'
     });
     return config;
-  },
-  // Add this to ensure static assets are handled correctly
-  images: {
-    unoptimized: true
   }
-}
+};
 
-module.exports = nextConfig 
+module.exports = nextConfig; 
