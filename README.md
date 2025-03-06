@@ -8,7 +8,7 @@ _Where Code Meets Creativity_
 ---
 
 ## 🌸 **About Me**  
-👋 Hey there! I’m **ManINeedToSleep**, a passionate developer blending **cybersecurity, AI, and creative coding** into meaningful projects. Whether it's **phishing simulations, AI-driven applications, or immersive roleplaying experiences**, I love crafting software that makes an impact.  
+👋 Hey there! I’m **ManINeedToSleep**, a passionate developer blending **Gaming, AI, and creative coding** into meaningful projects. Whether it's **AI-driven applications or immersive roleplaying experiences**, I love crafting software that makes an impact.  
 
 💡 I’m currently working on:  
 - 💬 A **Productivity Website** with a Doki Doki Theme,
