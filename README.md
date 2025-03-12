@@ -17,7 +17,6 @@ _Where Code Meets Creativity_
 - **Frontend frameworks** like **React** & **Next.js**  
 - **Backend development** with **Flask** & **Node.js**  
 - **Databases** like **Prisma, Firebase & NeonDB**  
-- **AI & cybersecurity** integrations  
 
 ---
 
