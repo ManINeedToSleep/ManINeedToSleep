@@ -184,7 +184,22 @@ If you find my projects helpful or just want to support me, you can:
 <div align="center">
   
 ### 🎵 **Currently Vibing To**
-[![Spotify](https://novatorem-5cfa0oqdb-manineedtosleeps-projects.vercel.app/api/spotify)](https://open.spotify.com/user/317jq7gp3c2dksrvp63kpoqhnuyu)
+<div align="center">
+  <table width="100%"> 
+    <tr>
+      <td width="100%" align="center">
+        <p>
+          <strong>Weight of the World</strong><br>
+          <sup>NieR:Automata Original Soundtrack</sup><br>
+          ═══════⊰⋆⋅☆⋅⊱═══════<br>
+          ▶️ ━━━━━⬤━━━━━ 3:47<br>
+          <sup><i>"The sound of the end feels so beautiful"</i></sup><br>
+          ╰── 🎧 Composed by Keiichi Okabe ──╯
+        </p>
+      </td>
+    </tr>
+  </table>
+</div>
 
 ### 💭 **Random Dev Quote**
 [![Readme Quotes](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dracula)](https://github.com/piyushsuthar/github-readme-quotes)
