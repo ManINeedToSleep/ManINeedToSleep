@@ -15,11 +15,27 @@
 👋 Hey there! I'm **ManINeedToSleep**, a passionate developer blending **Gaming, AI, and creative coding** into meaningful projects. Whether it's **AI-driven applications or immersive roleplaying experiences**, I love crafting software that makes an impact.  
 
 ```ascii
-     ,---.           ,--.                              ,--.          
-    /  O  \ ,--,--, |  |    ,--,--. ,--,--,  ,---.  ,-|  | ,---.    
-   |  .-.  ||      \|  |   ' ,-.  | |      \| .-. |' .-. || .-. :   
-   |  | |  ||  ||  ||  |   \ '-'  | |  ||  |' '-' '\ `-' |\   --.   
-   `--' `--'`--''--'`--'    `--`--' `--''--' `---'  `---'  `----'   
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣠⣴⣶⣶⡾⠿⠿⠿⠛⠛⠛⠛⠛⣛⣛⣛⡛⠛⠛⠛⠻⠟⠟⠿⢿⠿⠿⣶⣶⣶⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢀⣤⣾⡿⠟⠛⠉⠀⣀⣀⣠⣤⣤⣤⣤⣦⣾⣿⡿⠿⠿⠿⠿⠿⠿⢿⣿⣿⣶⣤⣍⣉⣙⣛⠳⠭⡛⠻⢿⡶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢸⣏⢿⣀⣤⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣶⣤⣤⣄⡀⠀⠘⠋⢛⣻⣿⠟⠲⢶⣤⣠⡿⣸⡆⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢸⠉⠓⠿⣿⣿⣿⣿⣿⣿⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⢟⠛⠁⠀⠀⠀⣀⣠⣽⣷⣶⣾⣿⠟⠛⢹⣅⣤⣤⢦⣦⣤⣄⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢸⡄⡀⠀⠀⠀⠉⠉⠛⠛⠻⠿⠿⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⡿⡿⣿⣛⣛⣭⠭⠷⠀⢀⠀⣸⠁⠈⠙⣏⠉⠹⡿⡷⡄
+⠀⠀⠀⠀⠀⠀⠀⢸⡇⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠈⠀⣀⠀⠀⠀⠒⠒⠒⠚⠛⣯⣁⣈⣅⡤⡤⠀⡇⢸⢀⢻⠶⠞⠛⠋⠙⣧⢱⠻⣷
+⠀⠀⠀⠀⠀⠀⠀⢸⣷⢸⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠻⢭⣉⠉⠉⠉⠉⣯⣀⣸⣆⡇⢀⠇⡌⣸⣾⠀⠀⠀⠀⠀⣏⢸⠀⣿
+⠀⠀⠀⠀⠀⠀⠀⠀⣿⡘⡀⢇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢳⡀⠈⠉⠉⣏⠙⡇⠃⣸⢰⢇⣿⡇⠀⠀⠀⠀⢠⣏⣿⢇⡇
+⠀⠀⠀⠀⠀⠀⠀⠀⠹⡇⣇⢸⡄⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⡄⠀⠒⢿⠒⠛⢰⠇⡾⢸⣹⠃⠀⠀⠀⢠⡟⢈⣾⡿⠁
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢷⣸⡄⢧⠈⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠈⠀⢀⡟⢰⢃⣆⡟⠀⠀⢀⡴⠋⣠⣯⡾⠁⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣧⢣⠘⡆⠸⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡇⠀⠀⠀⢠⡞⢠⢏⡾⣿⣁⣠⠾⠋⣠⢼⣷⠟⠀⠀⠀
+⠀⠀⠀⠀⠀⣀⣤⡤⠶⠛⢻⣿⣧⠹⡄⢳⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⠀⠀⢀⣠⠏⢠⢏⡽⣼⠟⠉⣠⣴⣿⡷⠛⠁⠀⠀⠀⠀
+⠀⠀⣠⡴⠻⠉⣡⣤⠶⠚⠛⢹⣎⢆⠱⡄⢳⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⡖⣲⡞⠓⣰⢯⣟⣰⣏⣠⡤⣿⣿⡙⠛⠶⣄⠀⠀⠀⠀
+⢰⡿⠃⢠⡾⠋⠁⠀⠀⠀⠀⠀⠹⣮⡁⠙⢆⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⡿⣏⡽⠋⠁⣼⣿⣫⡾⠋⠩⡀⢢⠀⠈⡝⢷⡄⢺⢷⡆⠀⠀
+⢹⣇⣀⠸⣷⡀⠀⠀⣀⠀⠀⠀⠀⠈⠳⣄⡈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣿⣛⣩⣿⠯⠅⠀⣠⣿⡿⠋⠀⢀⣠⠏⣠⠇⢀⣼⣴⠇⣸⣸⡏⠀⠀
+⠀⠙⢷⣄⡺⣟⣦⣤⣐⡿⢿⣲⣤⣤⣀⡈⠙⠳⢤⣄⣀⣀⡀⠀⠀⠀⢀⣠⣤⠬⢤⣤⣬⠥⠄⣀⣀⡬⠞⠋⠀⠀⣠⣤⣶⣿⣥⣾⠿⣟⣥⣻⡿⠋⠀⠀⠀
+⠀⠀⠀⠈⠛⠳⢯⣵⣛⣿⠿⢷⣾⣯⡭⠿⣶⣶⣤⣀⣉⣉⣉⣛⣛⣛⣛⠛⡛⣛⣛⣛⣛⣋⣩⣉⣁⣶⣶⠶⠮⠭⠟⠛⢛⣉⣉⣬⣷⠟⠛⠁⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠈⠙⠾⣭⣙⠓⠛⠿⠧⣤⣤⣤⣌⣉⣉⣩⣻⣛⠛⠉⠉⠭⠭⠭⢭⣭⣿⣽⣯⣍⣁⣤⣤⣤⣤⡶⣶⣾⣿⣽⠿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠓⠶⠶⠤⣤⣀⣀⣀⣮⣍⣭⢭⣉⣉⣉⣉⣉⠉⣉⢉⢉⣉⣓⣀⣀⣹⣩⠭⠿⠷⠛⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ```
 
 ### 🌈 **What Fuels My Passion:**
@@ -126,11 +142,11 @@
 
 <div align="center">
   
-<a href="https://github.com/ManINeedToSleep/your-project-1">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=your-project-1&theme=dracula&bg_color=00000000&title_color=bd93f9&text_color=ffffff&icon_color=ff79c6&hide_border=true" />
+<a href="https://github.com/ManINeedToSleep/Nexus-Social">
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=Nexus-Social&theme=dracula&bg_color=00000000&title_color=bd93f9&text_color=ffffff&icon_color=ff79c6&hide_border=true" />
 </a>
-<a href="https://github.com/ManINeedToSleep/your-project-2">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=your-project-2&theme=dracula&bg_color=00000000&title_color=bd93f9&text_color=ffffff&icon_color=ff79c6&hide_border=true" />
+<a href="https://github.com/ManINeedToSleep/DokiDoki_Productivity_CompanionV2">
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=DokiDoki_Productivity_CompanionV2&theme=dracula&bg_color=00000000&title_color=bd93f9&text_color=ffffff&icon_color=ff79c6&hide_border=true" />
 </a>
 
 </div>
@@ -166,7 +182,10 @@ If you find my projects helpful or just want to support me, you can:
 <div align="center">
   
 ### 🎵 **Currently Vibing To**
-[![Spotify](https://novatorem-weld-ten.vercel.app/api/spotify)](https://open.spotify.com/user/YOUR_SPOTIFY_ID)
+<p align="center">
+  <b>Weight of the World</b> - NieR:Automata OST<br>
+  <i>"The sound of the end feels so beautiful"</i>
+</p>
 
 ### 💭 **Random Dev Quote**
 [![Readme Quotes](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dracula)](https://github.com/piyushsuthar/github-readme-quotes)
