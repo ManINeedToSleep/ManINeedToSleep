@@ -106,8 +106,8 @@
 
 ## 📊 **GitHub Skyline** 
 
-<a href="https://skyline.github.com/ManINeedToSleep/2023" target="_blank">
-  <img src="https://img.shields.io/badge/View%20My%20GitHub%20Skyline-2023-blue?style=for-the-badge&logo=github" alt="GitHub Skyline 2023"/>
+<a href="https://skyline.github.com/ManINeedToSleep/2025" target="_blank">
+  <img src="https://img.shields.io/badge/View%20My%20GitHub%20Skyline-2025-blue?style=for-the-badge&logo=github" alt="GitHub Skyline 2025"/>
 </a>
 
 </div>
