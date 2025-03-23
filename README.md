@@ -184,7 +184,7 @@ If you find my projects helpful or just want to support me, you can:
 <div align="center">
   
 ### 🎵 **Currently Vibing To**
-[![Spotify](https://your-vercel-deployment-url.vercel.app/api/spotify)](https://open.spotify.com/user/317jq7gp3c2dksrvp63kpoqhnuyu)
+[![Spotify](https://novatorem-5cfa0oqdb-manineedtosleeps-projects.vercel.app/api/spotify)](https://open.spotify.com/user/317jq7gp3c2dksrvp63kpoqhnuyu)
 
 ### 💭 **Random Dev Quote**
 [![Readme Quotes](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dracula)](https://github.com/piyushsuthar/github-readme-quotes)
