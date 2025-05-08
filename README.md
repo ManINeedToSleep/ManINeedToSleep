@@ -1,11 +1,11 @@
 <div align="center">
   
-# 🌸 **ManINeedToSleep** 🌸
-### _Where Code Dreams Come to Life_ ✨
+# **ManINeedToSleep**
+### _Crafting Cool Code, One Byte at a Time_
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=FF79C6&center=true&vCenter=true&random=false&width=435&lines=Passionate+Developer;AI+Enthusiast;Creative+Coder;Gaming+Aficionado;Always+Learning)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00C9FF&center=true&vCenter=true&random=false&width=500&lines=Clean+Code+Enthusiast;Ice-Cool+Problem+Solver;AI+Whisperer;Late+Night+Debugger;Full-Stack+Developer;Always+Evolving)](https://git.io/typing-svg)
 
-<img src="https://komarev.com/ghpvc/?username=ManINeedToSleep&style=flat-square&color=ff79c6" alt="Profile Views">
+<img src="https://komarev.com/ghpvc/?username=ManINeedToSleep&style=flat-square&color=00c9ff" alt="Profile Views">
 
 </div>
 
