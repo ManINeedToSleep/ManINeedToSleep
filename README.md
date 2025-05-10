@@ -1,6 +1,6 @@
 <div align="center">
   
-<img src="public\Username.png" alt="ManINeedToSleep Username Banner" width="400">
+<img src="public\image\Username.png" alt="ManINeedToSleep Username Banner" width="400">
 <br>
 "Crafting Cool Code, One Byte at a Time"
 
