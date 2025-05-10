@@ -1,6 +1,6 @@
 "use client"; // Required for Ant Design components that use client-side features like state, effects, or event handlers
 
-import { Card, Typography, Tag, Space, Button, Avatar, Row, Col, Tooltip, Tabs, Timeline, Segmented } from 'antd';
+import { Card, Typography, Tag, Space, Button, Avatar, Row, Col, Tooltip, Tabs, Segmented } from 'antd';
 import { 
   GithubOutlined, 
   LinkOutlined, 
@@ -9,15 +9,9 @@ import {
   ArrowDownOutlined,
   LinkedinOutlined,
   TwitterOutlined,
-  CodeOutlined,
   TrophyOutlined,
   BookOutlined,
-  RocketOutlined,
-  CrownOutlined,
-  BankOutlined,
-  ExperimentOutlined,
-  UserOutlined,
-  ProjectOutlined
+  CodeOutlined
 } from '@ant-design/icons';
 import { motion } from 'framer-motion'; // We'll use this for subtle animations
 import VideoBackground from '@/components/ui/VideoBackground'; // Add this
@@ -56,10 +50,9 @@ export default function HomePage() {
       if (storyCardRef.current && skillsCardRef.current) {
         const storyHeight = storyCardRef.current.offsetHeight;
         const skillsHeight = skillsCardRef.current.offsetHeight;
-        setCardRowHeight(Math.max(storyHeight, skillsHeight));
+        setCardRowHeight(Math.max(storyHeight, skillsHeight, 750));
       } else {
-         // Fallback or default height if refs aren't available yet, or set to undefined to use CSS min-height
-         setCardRowHeight(450); // Default min-height as a fallback
+         setCardRowHeight(750);
       }
     };
 
@@ -68,57 +61,17 @@ export default function HomePage() {
     return () => window.removeEventListener('resize', calculateHeight);
   }, [isClient]); // Recalculate if isClient changes, or on other relevant data changes
 
-  const timelineItemsData = [
-    {
-      title: "Graduated from Belmont Charter High School",
-      company: "Belmont Charter High School",
-      date: "2020 - 2024",
-      description: "Completed High School Diploma in General Education.",
-      iconName: "CrownOutlined"
-    },
-    {
-      title: "Joined Launchpad Philly",
-      company: "Launchpad Philly",
-      date: "Jan 2023",
-      description: "Began Workforce Development Program in Software Development.",
-      iconName: "BankOutlined"
-    },
-    {
-      title: "Contributor Internship",
-      company: "Bentley Systems",
-      date: "2022 - 2023",
-      description: "Improved interaction with 3D model data in enterprise-grade internal applications.",
-      iconName: "ExperimentOutlined"
-    },
-    {
-      title: "Graduated Launchpad Philly",
-      company: "Launchpad Philly",
-      date: "June 2024",
-      description: "Successfully completed the software development program, ready for new challenges!",
-      iconName: "CrownOutlined"
-    }
-  ];
-
-  // Helper to get icon component from string name
-  const getTimelineIcon = (iconName?: string) => {
-    const style = { fontSize: '1.2rem', color: 'var(--luminous-glow-blue)' };
-    if (iconName === "CrownOutlined") return <CrownOutlined style={style} />;
-    if (iconName === "BankOutlined") return <BankOutlined style={style} />;
-    if (iconName === "ExperimentOutlined") return <ExperimentOutlined style={style} />;
-    return <RocketOutlined style={style} />; // Default icon
-  };
-
   const projects: Project[] = [
     {
       title: "Doki Doki Productivity Companion",
       description: "An anime-themed AI tool supporting Pomodoro timing, goal tracking, and real-time analytics via virtual companions.",
-      tech: ["Next.js", "TypeScript", "Firebase", "Ant Design", "AI/NLP API"],
+      tech: ["Next.js", "TypeScript", "Firebase", "Gamification", "AI Integration"],
       githubUrl: "#", // Replace with actual link
       liveUrl: "#",   // Replace with actual link
       imageUrl: "https://via.placeholder.com/400x200/A0D2DB/1F2937?text=Project+Thumbnail" // Placeholder image
     },
     {
-      title: "Portfolio Website (This one!)",
+      title: "Portfolio Website",
       description: "My personal portfolio website built with a Hololive Fubuki theme, showcasing my skills and projects.",
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "Ant Design", "Framer Motion"],
       githubUrl: "#", // Replace with actual link
@@ -126,7 +79,7 @@ export default function HomePage() {
       imageUrl: "https://via.placeholder.com/400x200/60A5FA/FFFFFF?text=Fubuki+Portfolio"
     },
     {
-      title: "Placeholder Project 3",
+      title: "Nexus Social",
       description: "A third project to showcase more work. Perhaps a cool backend service or a data visualization app!",
       tech: ["Python", "Flask", "Docker", "Chart.js"],
       githubUrl: "#",
@@ -184,13 +137,6 @@ export default function HomePage() {
       issueDate: "Feb 2025", 
       certificateUrl: "#"
     },
-    {
-      title: "AI & Machine Learning Fundamentals",
-      issuer: "Databricks",
-      issueDate: "Nov 2024",
-      expiryDate: "Nov 2026",
-      certificateUrl: "#"
-    }
   ];
 
   const education = [
@@ -200,9 +146,9 @@ export default function HomePage() {
       period: "Jan 2023 - Present"
     },
     {
-      institution: "Belmont Charter High School",
+      institution: "Furness Horace High School",
       degree: "High School Diploma in General Education",
-      period: "2020-2024"
+      period: "2022-2024"
     }
   ];
 
@@ -265,7 +211,7 @@ export default function HomePage() {
               </Title>
               <div className="w-32 h-1 bg-luminous-glow-blue rounded-full mb-4"></div>
               <Paragraph className="font-flair !text-2xl md:!text-3xl !text-luminous-lilac-tint !mb-6 text-center">
-                Foxcore Developer: Powered by Coffee and Anime
+                Full Stack Developer: Powered by Coffee and Anime
               </Paragraph>
               
               <Paragraph className="font-sans !text-base md:!text-lg max-w-2xl text-center mb-8 text-luminous-mist-gray">
@@ -283,6 +229,8 @@ export default function HomePage() {
                   View Projects
                 </Button>
                 <Button 
+                  ghost
+                  type="primary"
                   size="large" 
                   className="font-sans"
                   icon={<MailOutlined />}
@@ -303,9 +251,9 @@ export default function HomePage() {
               </Space>
 
               <Space size="middle" className="mt-2">
-                <Button type="text" icon={<GithubOutlined style={{ fontSize: '1.5rem' }} />} href="https://github.com/yourusername" target="_blank" />
-                <Button type="text" icon={<LinkedinOutlined style={{ fontSize: '1.5rem' }} />} href="#" target="_blank" />
-                <Button type="text" icon={<TwitterOutlined style={{ fontSize: '1.5rem' }} />} href="#" target="_blank" />
+                <Button ghost type="primary" icon={<GithubOutlined style={{ fontSize: '1.5rem' }} />} href="https://github.com/yourusername" target="_blank" />
+                <Button ghost type="primary" icon={<LinkedinOutlined style={{ fontSize: '1.5rem' }} />} href="#" target="_blank" />
+                <Button ghost type="primary" icon={<TwitterOutlined style={{ fontSize: '1.5rem' }} />} href="#" target="_blank" />
                 {/* Add other social media buttons as needed */}
               </Space>
             </div>
@@ -330,17 +278,23 @@ export default function HomePage() {
 
             <Row gutter={[32, 32]} className="mb-8 items-stretch">
               <Col xs={24} lg={12} className="flex">
-                <motion.div variants={itemVariants} className="w-full h-full" ref={storyCardRef}>
+                <motion.div 
+                  variants={itemVariants} 
+                  className="w-full h-full" 
+                  ref={storyCardRef}
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <Card
                     variant="borderless"
-                    className="shadow-lg rounded-xl overflow-hidden flex flex-col transform hover:scale-102 transition-all duration-300"
+                    className="shadow-lg rounded-xl overflow-hidden flex flex-col h-full"
                     style={{ 
                       ...sectionCardStyle, 
                       height: cardRowHeight ? `${cardRowHeight}px` : 'auto',
                       background: 'linear-gradient(145deg, rgba(44, 62, 102, 0.7), rgba(20, 29, 43, 0.95))',
                       borderLeft: '4px solid var(--luminous-glow-blue)'
                     }}
-                    styles={{ body: { flexGrow: 1, color: 'var(--luminous-mist-gray)'} }}
+                    styles={{ body: { flexGrow: 1, color: 'var(--luminous-mist-gray)' } }}
                   >
                     <div className="flex items-center mb-6">
                       <div className="w-10 h-10 rounded-full bg-luminous-glow-blue/20 flex items-center justify-center mr-4">
@@ -352,10 +306,10 @@ export default function HomePage() {
                     </div>
                     
                     <div className="pl-2 border-l-2 border-luminous-primary-blue/30">
-                      <Paragraph className="font-sans !text-base mb-4 pl-3" style={{ color: 'var(--luminous-mist-gray)' }}>
+                      <Paragraph className="font-sans !text-base mb-4 pl-3 leading-relaxed" style={{ color: 'var(--luminous-mist-gray)' }}>
                         As a Full Stack Engineer at Launchpad Philly, I design and develop full-stack applications using modern frameworks like React, Next.js, Firebase, TypeScript, and PostgreSQL. I&apos;ve delivered real-world solutions through sprint-based collaboration and creative problem solving.
                       </Paragraph>
-                      <Paragraph className="font-sans !text-base pl-3" style={{ color: 'var(--luminous-mist-gray)' }}>
+                      <Paragraph className="font-sans !text-base pl-3 leading-relaxed" style={{ color: 'var(--luminous-mist-gray)' }}>
                         I&apos;m passionate about combining functionality with aesthetic flair and am constantly exploring new stacks and technologies. My standout project is the <Text strong className="text-luminous-glow-blue">Doki Doki Productivity Companion</Text>, an anime-themed AI tool for productivity and goal tracking.
                       </Paragraph>
                     </div>
@@ -364,10 +318,16 @@ export default function HomePage() {
               </Col>
 
               <Col xs={24} lg={12} className="flex">
-                <motion.div variants={itemVariants} className="w-full h-full" ref={skillsCardRef}>
+                <motion.div 
+                  variants={itemVariants} 
+                  className="w-full h-full" 
+                  ref={skillsCardRef}
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <Card
                     variant="borderless"
-                    className="shadow-lg rounded-xl overflow-hidden flex flex-col transform hover:scale-102 transition-all duration-300"
+                    className="shadow-lg rounded-xl overflow-hidden flex flex-col h-full"
                     style={{ 
                       ...sectionCardStyle, 
                       height: cardRowHeight ? `${cardRowHeight}px` : 'auto',
@@ -387,7 +347,6 @@ export default function HomePage() {
                     
                     <Tabs
                       defaultActiveKey="skills"
-                      tabPosition="left"
                       className="fubuki-tabs flex-grow flex flex-col"
                       items={[
                         {
@@ -399,7 +358,13 @@ export default function HomePage() {
                             </span>
                           ),
                           children: (
-                            <div className="pt-2 pb-2 flex-grow flex flex-col">
+                            <motion.div
+                              key={`skills-tab-${selectedSkillCategory}`}
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.4, ease: "easeInOut" }}
+                              className="pt-2 pb-2 flex-grow flex flex-col h-full"
+                            >
                               <div className="mb-4">
                                 <Segmented
                                   options={skillCategories.map(category => ({ label: category, value: category }))}
@@ -414,10 +379,10 @@ export default function HomePage() {
                                   }}
                                 />
                               </div>
-                              <div className="flex-grow overflow-y-auto px-1">
+                              <div className="flex-grow overflow-y-auto px-1 w-full overflow-x-hidden">
                                 <Row gutter={[16, 16]}>
                                   {technicalSkills[selectedSkillCategory as keyof typeof technicalSkills]?.map(skill => (
-                                    <Col xs={12} sm={12} md={8} lg={8} key={skill}>
+                                    <Col xs={12} sm={8} md={6} lg={6} key={skill}>
                                       <SkillCard
                                         name={skill}
                                         logoSrc={techLogos[skill] || "https://via.placeholder.com/48"}
@@ -426,7 +391,7 @@ export default function HomePage() {
                                   ))}
                                 </Row>
                               </div>
-                            </div>
+                            </motion.div>
                           ),
                         },
                         {
@@ -438,18 +403,23 @@ export default function HomePage() {
                             </span>
                           ),
                           children: (
-                            <div className="pt-4 pb-2 flex-grow overflow-y-auto">
+                            <motion.div
+                              key="certifications-tab"
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.4, ease: "easeInOut" }}
+                              className="pt-4 pb-2 flex-grow flex flex-col overflow-y-auto h-full"
+                            >
                               {certifications.map((cert, index) => (
                                 <CertificationCard
                                   key={index}
                                   title={cert.title}
                                   issuer={cert.issuer}
                                   issueDate={cert.issueDate}
-                                  expiryDate={cert.expiryDate}
                                   certificateUrl={cert.certificateUrl}
                                 />
                               ))}
-                            </div>
+                            </motion.div>
                           ),
                         },
                         {
@@ -461,7 +431,13 @@ export default function HomePage() {
                             </span>
                           ),
                           children: (
-                            <div className="pt-4 pb-2 flex-grow overflow-y-auto">
+                            <motion.div
+                              key="education-tab"
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.4, ease: "easeInOut" }}
+                              className="pt-4 pb-2 flex-grow flex flex-col overflow-y-auto h-full"
+                            >
                               {education.map((edu, index) => (
                                 <EducationCard
                                   key={index}
@@ -470,63 +446,11 @@ export default function HomePage() {
                                   period={edu.period}
                                 />
                               ))}
-                            </div>
+                            </motion.div>
                           ),
                         },
                       ]}
                     />
-                  </Card>
-                </motion.div>
-              </Col>
-            </Row>
-
-            {/* My Journey Timeline Card (Full Width Below) */}
-            <Row>
-              <Col xs={24}>
-                <motion.div variants={itemVariants}>
-                  <Card
-                    variant="borderless"
-                    className="shadow-xl rounded-xl overflow-hidden py-6 transform hover:scale-102 transition-all duration-300"
-                    style={{
-                      ...sectionCardStyle,
-                      background: 'linear-gradient(to right, rgba(20, 29, 43, 0.95), rgba(44, 62, 102, 0.7), rgba(20, 29, 43, 0.95))',
-                      boxShadow: '0 12px 24px rgba(0, 0, 0, 0.2)'
-                    }}
-                  >
-                    <div className="flex items-center justify-center mb-10">
-                      <div className="w-10 h-10 rounded-full bg-luminous-glow-blue/20 flex items-center justify-center mr-4">
-                        <RocketOutlined style={{ fontSize: '1.2rem', color: 'var(--luminous-glow-blue)' }} />
-                      </div>
-                      <Title level={3} className="font-display !mb-0 text-center text-luminous-ghost-white">
-                        My Professional Journey
-                      </Title>
-                    </div>
-                    <div className="px-4 sm:px-8 overflow-x-auto pb-4">
-                      <Timeline 
-                        mode="left" 
-                        className="flex flex-row space-x-8 min-w-max py-2"
-                        items={timelineItemsData.map(item => ({
-                          dot: getTimelineIcon(item.iconName),
-                          children: (
-                            <div className="p-4 rounded-lg bg-gradient-to-br from-luminous-primary-blue/40 to-luminous-deep-navy/60 backdrop-blur-sm shadow-lg border border-luminous-primary-blue/20 w-64 md:w-80 flex-shrink-0 transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl">
-                              <Text strong className="font-display block text-luminous-ghost-white text-base md:text-lg">
-                                {item.title}
-                              </Text>
-                              <Text className="font-sans text-luminous-lilac-tint text-xs md:text-sm block mb-1">
-                                {item.company}
-                              </Text>
-                              <div className="w-12 h-0.5 bg-luminous-glow-blue/50 rounded my-2"></div>
-                              <Text type="secondary" italic className="font-sans text-xs block mb-2 text-luminous-mist-gray/80">
-                                {item.date}
-                              </Text>
-                              <Paragraph className="font-sans text-xs leading-relaxed text-luminous-mist-gray mt-2">
-                                {item.description}
-                              </Paragraph>
-                            </div>
-                          ),
-                        }))}
-                      />
-                    </div>
                   </Card>
                 </motion.div>
               </Col>
