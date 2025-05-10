@@ -27,26 +27,26 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
       className="mb-4"
     >
       <Card
-        className="rounded-lg shadow-sm bg-white overflow-hidden"
-        bordered={false}
+        className="rounded-lg shadow-sm bg-luminous-deep-navy/80 overflow-hidden backdrop-blur-sm border border-luminous-primary-blue/30"
+        variant="borderless"
       >
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
           <div>
-            <Title level={5} className="font-display !mb-1" style={{ color: 'var(--fubuki-dark-blue)' }}>
+            <Title level={5} className="font-display !mb-1 text-luminous-ghost-white">
               {title}
             </Title>
-            <Text className="font-sans text-fubuki-text-secondary block">{issuer}</Text>
+            <Text className="font-sans text-luminous-mist-gray block">{issuer}</Text>
           </div>
           
           <div className="mt-2 lg:mt-0 flex flex-col items-start lg:items-end">
-            <Text className="font-sans text-xs" type="secondary">
+            <Text className="font-sans text-xs text-luminous-mist-gray/80" type="secondary">
               Issued {issueDate}{expiryDate ? ` • Expires ${expiryDate}` : ''}
             </Text>
             
             {certificateUrl && (
               <Button 
                 type="link" 
-                className="font-sans !p-0 mt-2 text-fubuki-primary-blue" 
+                className="font-sans !p-0 mt-2 text-luminous-glow-blue hover:!text-luminous-lilac-tint" 
                 icon={<LinkOutlined />}
                 href={certificateUrl}
                 target="_blank"

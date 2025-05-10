@@ -1,6 +1,6 @@
 "use client"; // Required for Ant Design components that use client-side features like state, effects, or event handlers
 
-import { Card, Typography, Tag, Space, Button, Avatar, Row, Col, Tooltip, Tabs, Timeline } from 'antd';
+import { Card, Typography, Tag, Space, Button, Avatar, Row, Col, Tooltip, Tabs, Timeline, Segmented } from 'antd';
 import { 
   GithubOutlined, 
   LinkOutlined, 
@@ -15,7 +15,9 @@ import {
   RocketOutlined,
   CrownOutlined,
   BankOutlined,
-  ExperimentOutlined
+  ExperimentOutlined,
+  UserOutlined,
+  ProjectOutlined
 } from '@ant-design/icons';
 import { motion } from 'framer-motion'; // We'll use this for subtle animations
 import VideoBackground from '@/components/ui/VideoBackground'; // Add this
@@ -66,37 +68,45 @@ export default function HomePage() {
     return () => window.removeEventListener('resize', calculateHeight);
   }, [isClient]); // Recalculate if isClient changes, or on other relevant data changes
 
-  // Original timelineItems structure (ensure icons are ReactNodes)
-  const timelineItems = [
+  const timelineItemsData = [
     {
       title: "Graduated from Belmont Charter High School",
       company: "Belmont Charter High School",
       date: "2020 - 2024",
       description: "Completed High School Diploma in General Education.",
-      icon: <CrownOutlined style={{ fontSize: '1.2rem', color: 'var(--luminous-glow-blue)'}} />
+      iconName: "CrownOutlined"
     },
     {
       title: "Joined Launchpad Philly",
       company: "Launchpad Philly",
       date: "Jan 2023",
       description: "Began Workforce Development Program in Software Development.",
-      icon: <BankOutlined style={{ fontSize: '1.2rem', color: 'var(--luminous-glow-blue)'}} />
+      iconName: "BankOutlined"
     },
     {
       title: "Contributor Internship",
       company: "Bentley Systems",
       date: "2022 - 2023",
       description: "Improved interaction with 3D model data in enterprise-grade internal applications.",
-      icon: <ExperimentOutlined style={{ fontSize: '1.2rem', color: 'var(--luminous-glow-blue)'}} /> 
+      iconName: "ExperimentOutlined"
     },
     {
       title: "Graduated Launchpad Philly",
       company: "Launchpad Philly",
       date: "June 2024",
       description: "Successfully completed the software development program, ready for new challenges!",
-      icon: <CrownOutlined style={{ fontSize: '1.2rem', color: 'var(--luminous-glow-blue)'}} />
+      iconName: "CrownOutlined"
     }
   ];
+
+  // Helper to get icon component from string name
+  const getTimelineIcon = (iconName?: string) => {
+    const style = { fontSize: '1.2rem', color: 'var(--luminous-glow-blue)' };
+    if (iconName === "CrownOutlined") return <CrownOutlined style={style} />;
+    if (iconName === "BankOutlined") return <BankOutlined style={style} />;
+    if (iconName === "ExperimentOutlined") return <ExperimentOutlined style={style} />;
+    return <RocketOutlined style={style} />; // Default icon
+  };
 
   const projects: Project[] = [
     {
@@ -196,6 +206,25 @@ export default function HomePage() {
     }
   ];
 
+  const cardStyle = {
+    background: 'rgba(20, 29, 43, 0.85)', // luminous-deep-navy @ 85% opacity
+    backdropFilter: 'blur(10px)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)' // Slightly enhanced shadow for better depth
+  };
+
+  const sectionCardStyle = {
+    ...cardStyle,
+    // Specific to cards that are direct children of <section>
+  };
+
+  const heroCardStyle = {
+    background: 'rgba(20, 29, 43, 0.80)', // luminous-deep-navy @ 80% opacity for Hero
+    backdropFilter: 'blur(12px)',       // Slightly more blur for Hero
+    boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+  };
+
+  const skillCategories = Object.keys(technicalSkills);
+
   return (
     <>
       {/* Video Background instead of Floating Elements */}
@@ -211,12 +240,8 @@ export default function HomePage() {
         >
           <Card 
             variant="borderless" 
-            className="overflow-hidden"
-            style={{
-              boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
-              background: 'rgba(20, 29, 43, 0.85)',
-              backdropFilter: 'blur(12px)',
-            }}
+            className="overflow-hidden rounded-lg"
+            style={heroCardStyle}
           >
             <div className="flex flex-col items-center p-4 md:p-8">
               <motion.div
@@ -226,7 +251,7 @@ export default function HomePage() {
               >
                 <Avatar 
                   size={150} 
-                  src="https://via.placeholder.com/150/85C5FF/141D2B?text=MNS"
+                  src="https://via.placeholder.com/150/85C5FF/F0F6FF?text=MNS"
                   alt="Bryan Willson Gunawan"
                   style={{ 
                     border: '4px solid #85C5FF',
@@ -308,23 +333,32 @@ export default function HomePage() {
                 <motion.div variants={itemVariants} className="w-full h-full" ref={storyCardRef}>
                   <Card
                     variant="borderless"
-                    className="shadow-lg rounded-lg overflow-hidden flex flex-col"
-                    style={{
-                      background: 'rgba(20, 29, 43, 0.9)',
-                      backdropFilter: 'blur(10px)',
+                    className="shadow-lg rounded-xl overflow-hidden flex flex-col transform hover:scale-102 transition-all duration-300"
+                    style={{ 
+                      ...sectionCardStyle, 
                       height: cardRowHeight ? `${cardRowHeight}px` : 'auto',
+                      background: 'linear-gradient(145deg, rgba(44, 62, 102, 0.7), rgba(20, 29, 43, 0.95))',
+                      borderLeft: '4px solid var(--luminous-glow-blue)'
                     }}
                     styles={{ body: { flexGrow: 1, color: 'var(--luminous-mist-gray)'} }}
                   >
-                    <Title level={3} className="font-display !mb-6 !text-2xl text-luminous-ghost-white">
-                      My Story
-                    </Title>
-                    <Paragraph className="font-sans !text-base mb-4" style={{ color: 'var(--luminous-mist-gray)' }}>
-                      As a Full Stack Engineer at Launchpad Philly, I design and develop full-stack applications using modern frameworks like React, Next.js, Firebase, TypeScript, and PostgreSQL. I&apos;ve delivered real-world solutions through sprint-based collaboration and creative problem solving.
-                    </Paragraph>
-                    <Paragraph className="font-sans !text-base" style={{ color: 'var(--luminous-mist-gray)' }}>
-                      I&apos;m passionate about combining functionality with aesthetic flair and am constantly exploring new stacks and technologies. My standout project is the <Text strong className="text-luminous-lilac-tint">Doki Doki Productivity Companion</Text>, an anime-themed AI tool for productivity and goal tracking.
-                    </Paragraph>
+                    <div className="flex items-center mb-6">
+                      <div className="w-10 h-10 rounded-full bg-luminous-glow-blue/20 flex items-center justify-center mr-4">
+                        <BookOutlined style={{ fontSize: '1.2rem', color: 'var(--luminous-glow-blue)' }} />
+                      </div>
+                      <Title level={3} className="font-display !mb-0 !text-2xl text-luminous-ghost-white">
+                        My Story
+                      </Title>
+                    </div>
+                    
+                    <div className="pl-2 border-l-2 border-luminous-primary-blue/30">
+                      <Paragraph className="font-sans !text-base mb-4 pl-3" style={{ color: 'var(--luminous-mist-gray)' }}>
+                        As a Full Stack Engineer at Launchpad Philly, I design and develop full-stack applications using modern frameworks like React, Next.js, Firebase, TypeScript, and PostgreSQL. I&apos;ve delivered real-world solutions through sprint-based collaboration and creative problem solving.
+                      </Paragraph>
+                      <Paragraph className="font-sans !text-base pl-3" style={{ color: 'var(--luminous-mist-gray)' }}>
+                        I&apos;m passionate about combining functionality with aesthetic flair and am constantly exploring new stacks and technologies. My standout project is the <Text strong className="text-luminous-glow-blue">Doki Doki Productivity Companion</Text>, an anime-themed AI tool for productivity and goal tracking.
+                      </Paragraph>
+                    </div>
                   </Card>
                 </motion.div>
               </Col>
@@ -333,17 +367,27 @@ export default function HomePage() {
                 <motion.div variants={itemVariants} className="w-full h-full" ref={skillsCardRef}>
                   <Card
                     variant="borderless"
-                    className="shadow-lg rounded-lg overflow-hidden flex flex-col"
-                    style={{
-                      background: 'rgba(20, 29, 43, 0.9)',
-                      backdropFilter: 'blur(10px)',
+                    className="shadow-lg rounded-xl overflow-hidden flex flex-col transform hover:scale-102 transition-all duration-300"
+                    style={{ 
+                      ...sectionCardStyle, 
                       height: cardRowHeight ? `${cardRowHeight}px` : 'auto',
+                      background: 'linear-gradient(145deg, rgba(44, 62, 102, 0.7), rgba(20, 29, 43, 0.95))',
+                      borderRight: '4px solid var(--luminous-lilac-tint)'
                     }}
                     styles={{ body: { flexGrow: 1, display: 'flex', flexDirection: 'column', color: 'var(--luminous-mist-gray)' } }}
                   >
+                    <div className="flex items-center mb-6">
+                      <div className="w-10 h-10 rounded-full bg-luminous-lilac-tint/20 flex items-center justify-center mr-4">
+                        <CodeOutlined style={{ fontSize: '1.2rem', color: 'var(--luminous-lilac-tint)' }} />
+                      </div>
+                      <Title level={3} className="font-display !mb-0 !text-2xl text-luminous-ghost-white">
+                        Technical Skills
+                      </Title>
+                    </div>
+                    
                     <Tabs
                       defaultActiveKey="skills"
-                      centered
+                      tabPosition="left"
                       className="fubuki-tabs flex-grow flex flex-col"
                       items={[
                         {
@@ -355,23 +399,23 @@ export default function HomePage() {
                             </span>
                           ),
                           children: (
-                            <div className="pt-4 pb-2 flex-grow flex flex-col">
-                              <Space wrap className="justify-center mb-4 flex-shrink-0">
-                                {Object.keys(technicalSkills).map(category => (
-                                  <Button
-                                    key={category}
-                                    shape="round"
-                                    type={selectedSkillCategory === category ? "primary" : "default"}
-                                    onClick={() => setSelectedSkillCategory(category)}
-                                    className="font-sans text-sm"
-                                    size="middle"
-                                  >
-                                    {category}
-                                  </Button>
-                                ))}
-                              </Space>
-                              <div className="flex-grow overflow-y-auto">
-                                <Row gutter={[20, 20]}>
+                            <div className="pt-2 pb-2 flex-grow flex flex-col">
+                              <div className="mb-4">
+                                <Segmented
+                                  options={skillCategories.map(category => ({ label: category, value: category }))}
+                                  value={selectedSkillCategory}
+                                  onChange={(value) => setSelectedSkillCategory(value as string)}
+                                  className="fubuki-skill-segments"
+                                  block
+                                  style={{
+                                    background: 'rgba(44, 62, 102, 0.3)',
+                                    padding: '4px',
+                                    borderRadius: '8px'
+                                  }}
+                                />
+                              </div>
+                              <div className="flex-grow overflow-y-auto px-1">
+                                <Row gutter={[16, 16]}>
                                   {technicalSkills[selectedSkillCategory as keyof typeof technicalSkills]?.map(skill => (
                                     <Col xs={12} sm={12} md={8} lg={8} key={skill}>
                                       <SkillCard
@@ -436,49 +480,52 @@ export default function HomePage() {
               </Col>
             </Row>
 
-            {/* My Journey Timeline Card (Full Width Below) - Using AntD Timeline styled horizontally */}
+            {/* My Journey Timeline Card (Full Width Below) */}
             <Row>
               <Col xs={24}>
                 <motion.div variants={itemVariants}>
                   <Card
                     variant="borderless"
-                    className="shadow-lg rounded-lg overflow-hidden py-6"
+                    className="shadow-xl rounded-xl overflow-hidden py-6 transform hover:scale-102 transition-all duration-300"
                     style={{
-                      background: 'rgba(20, 29, 43, 0.9)', // luminous-deep-navy with transparency
-                      backdropFilter: 'blur(10px)',
+                      ...sectionCardStyle,
+                      background: 'linear-gradient(to right, rgba(20, 29, 43, 0.95), rgba(44, 62, 102, 0.7), rgba(20, 29, 43, 0.95))',
+                      boxShadow: '0 12px 24px rgba(0, 0, 0, 0.2)'
                     }}
                   >
-                    <Title level={3} className="font-display !mb-10 text-center text-luminous-ghost-white">
-                      My Professional Journey
-                    </Title>
-                    <div className="px-4 sm:px-8 overflow-x-auto pb-4"> {/* Container for horizontal scroll */}
+                    <div className="flex items-center justify-center mb-10">
+                      <div className="w-10 h-10 rounded-full bg-luminous-glow-blue/20 flex items-center justify-center mr-4">
+                        <RocketOutlined style={{ fontSize: '1.2rem', color: 'var(--luminous-glow-blue)' }} />
+                      </div>
+                      <Title level={3} className="font-display !mb-0 text-center text-luminous-ghost-white">
+                        My Professional Journey
+                      </Title>
+                    </div>
+                    <div className="px-4 sm:px-8 overflow-x-auto pb-4">
                       <Timeline 
-                        mode="left" // AntD doesn't have true horizontal, we use flex for items
-                        className="flex flex-row space-x-8 min-w-max py-2" // Flex row for items, min-width for scroll
-                      >
-                        {timelineItems.map((item, index) => (
-                          <Timeline.Item 
-                            key={index} 
-                            dot={item.icon || <RocketOutlined style={{ fontSize: '1.2rem', color: 'var(--luminous-glow-blue)'}}/>}
-                            className="flex-shrink-0 w-60 md:w-72" // Fixed width for each item
-                          >
-                            <div className="p-3 rounded-md bg-luminous-primary-blue/10 backdrop-blur-sm shadow">
-                              <Text strong className="font-sans block text-luminous-ghost-white text-sm md:text-base">
+                        mode="left" 
+                        className="flex flex-row space-x-8 min-w-max py-2"
+                        items={timelineItemsData.map(item => ({
+                          dot: getTimelineIcon(item.iconName),
+                          children: (
+                            <div className="p-4 rounded-lg bg-gradient-to-br from-luminous-primary-blue/40 to-luminous-deep-navy/60 backdrop-blur-sm shadow-lg border border-luminous-primary-blue/20 w-64 md:w-80 flex-shrink-0 transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl">
+                              <Text strong className="font-display block text-luminous-ghost-white text-base md:text-lg">
                                 {item.title}
                               </Text>
                               <Text className="font-sans text-luminous-lilac-tint text-xs md:text-sm block mb-1">
                                 {item.company}
                               </Text>
+                              <div className="w-12 h-0.5 bg-luminous-glow-blue/50 rounded my-2"></div>
                               <Text type="secondary" italic className="font-sans text-xs block mb-2 text-luminous-mist-gray/80">
                                 {item.date}
                               </Text>
-                              <Paragraph className="font-sans text-xs leading-relaxed text-luminous-mist-gray">
+                              <Paragraph className="font-sans text-xs leading-relaxed text-luminous-mist-gray mt-2">
                                 {item.description}
                               </Paragraph>
                             </div>
-                          </Timeline.Item>
-                        ))}
-                      </Timeline>
+                          ),
+                        }))}
+                      />
                     </div>
                   </Card>
                 </motion.div>
@@ -489,7 +536,7 @@ export default function HomePage() {
       </section>
 
       {/* Projects Section - Enhanced */}
-      <section id="projects" className="py-24 bg-luminous-deep-navy/30 backdrop-blur-sm">
+      <section id="projects" className="py-24 bg-luminous-primary-blue/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -512,12 +559,12 @@ export default function HomePage() {
                   <motion.div variants={itemVariants}>
                     <Card
                       hoverable
-                      className="font-sans shadow-xl flex flex-col h-full overflow-hidden border-luminous-primary-blue/30"
-                      style={{ background: 'rgba(20, 29, 43, 0.9)', backdropFilter: 'blur(10px)' }}
+                      className="font-sans shadow-xl flex flex-col h-full overflow-hidden rounded-lg border-luminous-primary-blue/50"
+                      style={cardStyle}
                       cover={
                         project.imageUrl ? (
                           <div className="overflow-hidden h-48 w-full relative">
-                            <Image
+          <Image
                               alt={project.title} 
                               src={project.imageUrl} 
                               fill
@@ -530,13 +577,13 @@ export default function HomePage() {
                       actions={[
                         project.githubUrl ? 
                           <Tooltip title="View on GitHub">
-                            <Button key={`github-${project.title}`} type="text" icon={<GithubOutlined />} href={project.githubUrl} target="_blank" className="font-sans text-luminous-mist-gray">
+                            <Button key={`github-${project.title}`} type="text" icon={<GithubOutlined className="text-luminous-mist-gray hover:text-luminous-glow-blue"/>} href={project.githubUrl} target="_blank" className="font-sans text-luminous-mist-gray">
                               Code
                             </Button>
                           </Tooltip> : null,
                         project.liveUrl ? 
                           <Tooltip title="View Live Demo">
-                            <Button key={`live-${project.title}`} type="text" icon={<LinkOutlined />} href={project.liveUrl} target="_blank" className="font-sans text-luminous-mist-gray">
+                            <Button key={`live-${project.title}`} type="text" icon={<LinkOutlined className="text-luminous-mist-gray hover:text-luminous-glow-blue"/>} href={project.liveUrl} target="_blank" className="font-sans text-luminous-mist-gray">
                               Live Demo
                             </Button>
                           </Tooltip> : null,
@@ -550,7 +597,7 @@ export default function HomePage() {
                         <Text strong className="font-sans text-sm text-luminous-lilac-tint">Tech Stack:</Text>
                         <div className="mt-2 flex flex-wrap gap-1">
                           {project.tech.map(techName => (
-                            <Tag key={techName} color="geekblue" className="font-sans text-xs text-luminous-mist-gray">
+                            <Tag key={techName} color="geekblue" className="font-sans text-xs bg-luminous-primary-blue/20 text-luminous-mist-gray border-luminous-primary-blue/50">
                               {techName}
                             </Tag>
                           ))}
@@ -563,7 +610,7 @@ export default function HomePage() {
             </Row>
             
             <motion.div variants={itemVariants} className="mt-16 text-center">
-              <Button type="primary" href="https://github.com/yourusername" target="_blank" size="large" className="text-luminous-ghost-white">
+              <Button type="primary" href="https://github.com/yourusername" target="_blank" size="large" className="text-luminous-deep-navy hover:!text-luminous-deep-navy font-semibold">
                 See More on GitHub
               </Button>
             </motion.div>
@@ -593,35 +640,31 @@ export default function HomePage() {
             <motion.div variants={itemVariants}>
               <Card 
                 variant="borderless" 
-                style={{ 
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
-                  background: 'rgba(20, 29, 43, 0.9)',
-                  backdropFilter: 'blur(10px)'
-                }}
-                className="overflow-hidden"
+                style={sectionCardStyle}
+                className="overflow-hidden rounded-lg"
               >
                 <Row gutter={[32, 32]} align="middle">
                   <Col xs={24} md={12} className="text-center md:text-left">
-                    <Title level={3} className="font-display !mb-6" style={{ color: 'var(--luminous-mist-gray)' }}>
+                    <Title level={3} className="font-display !mb-6 text-luminous-ghost-white">
                       Contact Details
                     </Title>
                     
                     <Space direction="vertical" size="large" className="w-full mb-8">
                       <div>
-                        <Text strong className="font-sans block mb-1" style={{ color: 'var(--luminous-mist-gray)' }}>Email</Text>
-                        <Button type="link" href="mailto:bryanwillsonbwg@gmail.com" className="font-sans !p-0 flex items-center text-luminous-mist-gray">
+                        <Text strong className="font-sans block mb-1 text-luminous-mist-gray">Email</Text>
+                        <Button type="link" href="mailto:bryanwillsonbwg@gmail.com" className="font-sans !p-0 flex items-center text-luminous-glow-blue hover:!text-luminous-lilac-tint">
                           <MailOutlined className="mr-2" />
                           bryanwillsonbwg@gmail.com
                         </Button>
                       </div>
                       
                       <div>
-                        <Text strong className="font-sans block mb-1" style={{ color: 'var(--luminous-mist-gray)' }}>Phone</Text>
+                        <Text strong className="font-sans block mb-1 text-luminous-mist-gray">Phone</Text>
                         <Text className="font-sans text-luminous-lilac-tint">215-892-0211</Text>
                       </div>
                       
                       <div>
-                        <Text strong className="font-sans block mb-2" style={{ color: 'var(--luminous-mist-gray)' }}>Find me on</Text>
+                        <Text strong className="font-sans block mb-2 text-luminous-mist-gray">Find me on</Text>
                         <Space size="middle">
                           <Button type="primary" shape="circle" icon={<GithubOutlined />} href="https://github.com/yourusername" target="_blank" />
                           <Button type="primary" shape="circle" icon={<LinkedinOutlined />} href="#" target="_blank" />
@@ -632,8 +675,8 @@ export default function HomePage() {
                   </Col>
                   
                   <Col xs={24} md={12}>
-                    <div className="rounded-lg overflow-hidden bg-luminous-primary-blue bg-opacity-10 p-8 text-center">
-                      <Title level={4} className="font-display !mb-8" style={{ color: 'var(--luminous-mist-gray)' }}>
+                    <div className="rounded-lg overflow-hidden bg-luminous-primary-blue/20 p-8 text-center">
+                      <Title level={4} className="font-display !mb-8 text-luminous-ghost-white">
                         Quick Connect
                       </Title>
                       
@@ -645,7 +688,7 @@ export default function HomePage() {
                         type="primary" 
                         href="mailto:bryanwillsonbwg@gmail.com" 
                         size="large" 
-                        className="font-sans text-luminous-mist-gray" 
+                        className="font-sans text-luminous-deep-navy hover:!text-luminous-deep-navy font-semibold" 
                         icon={<MailOutlined />}
                         block
                       >
@@ -657,7 +700,7 @@ export default function HomePage() {
               </Card>
             </motion.div>
           </motion.div>
-        </div>
+    </div>
       </section>
     </>
   );

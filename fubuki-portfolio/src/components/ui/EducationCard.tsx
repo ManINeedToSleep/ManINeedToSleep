@@ -22,19 +22,19 @@ const EducationCard: React.FC<EducationCardProps> = ({
       className="mb-4"
     >
       <Card
-        className="rounded-lg shadow-sm bg-white overflow-hidden"
-        bordered={false}
+        className="rounded-lg shadow-sm bg-luminous-deep-navy/80 overflow-hidden backdrop-blur-sm border border-luminous-primary-blue/30"
+        variant="borderless"
       >
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
           <div>
-            <Title level={5} className="font-display !mb-1" style={{ color: 'var(--fubuki-dark-blue)' }}>
+            <Title level={5} className="font-display !mb-1 text-luminous-ghost-white">
               {institution}
             </Title>
-            <Text className="font-sans text-fubuki-text-secondary block">{degree}</Text>
+            <Text className="font-sans text-luminous-mist-gray block">{degree}</Text>
           </div>
           
           <div className="mt-2 lg:mt-0">
-            <Text className="font-sans text-xs" type="secondary">
+            <Text className="font-sans text-xs text-luminous-mist-gray/80" type="secondary">
               {period}
             </Text>
           </div>

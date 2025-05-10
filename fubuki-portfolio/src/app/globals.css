@@ -31,3 +31,34 @@ body {
 /* .fubuki-timeline .ant-timeline-item { ... } */
 /* .fubuki-timeline .ant-timeline-item-content { ... } */
 /* .fubuki-timeline .ant-timeline-item-tail { ... } */
+
+/* Custom Styling for AntD Segmented Control as Pill Buttons */
+.fubuki-skill-segments .ant-segmented-item {
+  border-radius: 9999px !important; /* Fully rounded for pill shape */
+  border: 1px solid var(--luminous-glow-blue) !important; /* Glow blue outline for inactive */
+  background-color: transparent !important;
+  color: var(--luminous-mist-gray) !important; 
+  padding: 0.25rem 1rem !important; /* Adjust padding as needed */
+  margin: 0 0.25rem !important; /* Spacing between pills */
+  transition: all 0.3s ease !important;
+}
+
+.fubuki-skill-segments .ant-segmented-item-selected {
+  background-color: var(--luminous-glow-blue) !important; /* Glow blue fill for active */
+  color: var(--luminous-deep-navy) !important; /* Deep navy text for active */
+  border-color: var(--luminous-glow-blue) !important;
+}
+
+.fubuki-skill-segments .ant-segmented-thumb {
+  background-color: transparent !important; /* Hide default thumb */
+}
+
+.fubuki-skill-segments .ant-segmented-item:hover:not(.ant-segmented-item-selected) {
+  border-color: var(--luminous-lilac-tint) !important;
+  color: var(--luminous-lilac-tint) !important;
+}
+
+.fubuki-skill-segments .ant-segmented-item-label {
+  min-height: auto !important; /* Override AntD min-height if it causes issues */
+  line-height: inherit !important; /* Ensure text aligns well */
+}
