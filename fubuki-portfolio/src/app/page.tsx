@@ -1,105 +1,662 @@
+"use client"; // Required for Ant Design components that use client-side features like state, effects, or event handlers
+
+import { Card, Typography, Tag, Space, Button, Avatar, Row, Col, Tooltip, Tabs, Timeline } from 'antd';
+import { 
+  GithubOutlined, 
+  LinkOutlined, 
+  DownloadOutlined, 
+  MailOutlined, 
+  ArrowDownOutlined,
+  LinkedinOutlined,
+  TwitterOutlined,
+  CodeOutlined,
+  TrophyOutlined,
+  BookOutlined,
+  RocketOutlined,
+  CrownOutlined,
+  BankOutlined,
+  ExperimentOutlined
+} from '@ant-design/icons';
+import { motion } from 'framer-motion'; // We'll use this for subtle animations
+import VideoBackground from '@/components/ui/VideoBackground'; // Add this
+import Image from 'next/image'; // Import Next.js Image component
+import { techLogos } from '@/data/techLogos';
+import SkillCard from '@/components/ui/SkillCard';
+import CertificationCard from '@/components/ui/CertificationCard';
+import EducationCard from '@/components/ui/EducationCard';
+import { useState, useEffect, useRef } from 'react'; // Import useState, useEffect, and useRef
+
+const { Title, Paragraph, Text } = Typography;
+
+// Define a type for our project structure
+interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  githubUrl: string;
+  liveUrl?: string; // Optional
+  imageUrl?: string; // Optional
+}
+
 export default function HomePage() {
+  const [selectedSkillCategory, setSelectedSkillCategory] = useState<string>("Frontend");
+  const [isClient, setIsClient] = useState(false);
+  const [cardRowHeight, setCardRowHeight] = useState<number | undefined>(undefined);
+  const storyCardRef = useRef<HTMLDivElement>(null);
+  const skillsCardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    const calculateHeight = () => {
+      if (storyCardRef.current && skillsCardRef.current) {
+        const storyHeight = storyCardRef.current.offsetHeight;
+        const skillsHeight = skillsCardRef.current.offsetHeight;
+        setCardRowHeight(Math.max(storyHeight, skillsHeight));
+      } else {
+         // Fallback or default height if refs aren't available yet, or set to undefined to use CSS min-height
+         setCardRowHeight(450); // Default min-height as a fallback
+      }
+    };
+
+    calculateHeight();
+    window.addEventListener('resize', calculateHeight);
+    return () => window.removeEventListener('resize', calculateHeight);
+  }, [isClient]); // Recalculate if isClient changes, or on other relevant data changes
+
+  // Original timelineItems structure (ensure icons are ReactNodes)
+  const timelineItems = [
+    {
+      title: "Graduated from Belmont Charter High School",
+      company: "Belmont Charter High School",
+      date: "2020 - 2024",
+      description: "Completed High School Diploma in General Education.",
+      icon: <CrownOutlined style={{ fontSize: '1.2rem', color: 'var(--luminous-glow-blue)'}} />
+    },
+    {
+      title: "Joined Launchpad Philly",
+      company: "Launchpad Philly",
+      date: "Jan 2023",
+      description: "Began Workforce Development Program in Software Development.",
+      icon: <BankOutlined style={{ fontSize: '1.2rem', color: 'var(--luminous-glow-blue)'}} />
+    },
+    {
+      title: "Contributor Internship",
+      company: "Bentley Systems",
+      date: "2022 - 2023",
+      description: "Improved interaction with 3D model data in enterprise-grade internal applications.",
+      icon: <ExperimentOutlined style={{ fontSize: '1.2rem', color: 'var(--luminous-glow-blue)'}} /> 
+    },
+    {
+      title: "Graduated Launchpad Philly",
+      company: "Launchpad Philly",
+      date: "June 2024",
+      description: "Successfully completed the software development program, ready for new challenges!",
+      icon: <CrownOutlined style={{ fontSize: '1.2rem', color: 'var(--luminous-glow-blue)'}} />
+    }
+  ];
+
+  const projects: Project[] = [
+    {
+      title: "Doki Doki Productivity Companion",
+      description: "An anime-themed AI tool supporting Pomodoro timing, goal tracking, and real-time analytics via virtual companions.",
+      tech: ["Next.js", "TypeScript", "Firebase", "Ant Design", "AI/NLP API"],
+      githubUrl: "#", // Replace with actual link
+      liveUrl: "#",   // Replace with actual link
+      imageUrl: "https://via.placeholder.com/400x200/A0D2DB/1F2937?text=Project+Thumbnail" // Placeholder image
+    },
+    {
+      title: "Portfolio Website (This one!)",
+      description: "My personal portfolio website built with a Hololive Fubuki theme, showcasing my skills and projects.",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Ant Design", "Framer Motion"],
+      githubUrl: "#", // Replace with actual link
+      // liveUrl: null, // No live demo yet for itself
+      imageUrl: "https://via.placeholder.com/400x200/60A5FA/FFFFFF?text=Fubuki+Portfolio"
+    },
+    {
+      title: "Placeholder Project 3",
+      description: "A third project to showcase more work. Perhaps a cool backend service or a data visualization app!",
+      tech: ["Python", "Flask", "Docker", "Chart.js"],
+      githubUrl: "#",
+      imageUrl: "https://via.placeholder.com/400x200/D1D5DB/4B5563?text=More+Projects"
+    }
+  ];
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Animation variants for staggered children animations
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  // Additional data for new About Me section
+  const technicalSkills = {
+    Frontend: ["React", "Next.js", "Tailwind CSS"],
+    Backend: ["Flask", "Node.js"],
+    Tools: ["Git", "GitHub", "Firebase", "VS Code", "Vercel"],
+    Other: ["MongoDB", "PostgreSQL", "AWS", "Netlify", "Docker"]
+  };
+
+  const certifications = [
+    {
+      title: "PCEP™ – Certified Entry-Level Python Programmer",
+      issuer: "Python Institute",
+      issueDate: "Jun 2024",
+      certificateUrl: "#"
+    },
+    {
+      title: "React Development Certification",
+      issuer: "Codecademy",
+      issueDate: "Feb 2025", 
+      certificateUrl: "#"
+    },
+    {
+      title: "AI & Machine Learning Fundamentals",
+      issuer: "Databricks",
+      issueDate: "Nov 2024",
+      expiryDate: "Nov 2026",
+      certificateUrl: "#"
+    }
+  ];
+
+  const education = [
+    {
+      institution: "Launchpad Philly",
+      degree: "Workforce Development Program in Software Development",
+      period: "Jan 2023 - Present"
+    },
+    {
+      institution: "Belmont Charter High School",
+      degree: "High School Diploma in General Education",
+      period: "2020-2024"
+    }
+  ];
+
   return (
     <>
-      {/* Hero/Landing Section */}
-      <section id="home" className="min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center text-center p-8 bg-fubuki-white rounded-lg shadow-lg my-8">
-        <h1 className="font-display text-5xl md:text-6xl font-bold mb-4 text-fubuki-dark-blue">
-          Bryan Willson Gunawan
-        </h1>
-        <p className="font-flair text-3xl text-fubuki-primary-blue mb-8">
-          Foxcore Developer: Powered by Coffee and Anime
-        </p>
-        <p className="font-sans text-lg max-w-2xl text-fubuki-text-secondary">
-          Welcome to my digital den! Scroll down to learn more about me and my projects.
-        </p>
-        {/* Placeholder for Fubuki-themed graphic or animation */}
+      {/* Video Background instead of Floating Elements */}
+      <VideoBackground />
+
+      {/* Hero/Landing Section - Redesigned with central card and avatar */}
+      <section id="home" className="min-h-screen flex flex-col items-center justify-center py-24 px-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="w-full max-w-4xl"
+        >
+          <Card 
+            variant="borderless" 
+            className="overflow-hidden"
+            style={{
+              boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+              background: 'rgba(20, 29, 43, 0.85)',
+              backdropFilter: 'blur(12px)',
+            }}
+          >
+            <div className="flex flex-col items-center p-4 md:p-8">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="mb-6"
+              >
+                <Avatar 
+                  size={150} 
+                  src="https://via.placeholder.com/150/85C5FF/141D2B?text=MNS"
+                  alt="Bryan Willson Gunawan"
+                  style={{ 
+                    border: '4px solid #85C5FF',
+                    boxShadow: '0 4px 14px rgba(133, 197, 255, 0.2)'
+                  }}
+                />
+              </motion.div>
+
+              <Title level={1} className="font-display !text-4xl md:!text-5xl !mb-2 text-center text-luminous-ghost-white">
+                Bryan Willson Gunawan
+              </Title>
+              <div className="w-32 h-1 bg-luminous-glow-blue rounded-full mb-4"></div>
+              <Paragraph className="font-flair !text-2xl md:!text-3xl !text-luminous-lilac-tint !mb-6 text-center">
+                Foxcore Developer: Powered by Coffee and Anime
+              </Paragraph>
+              
+              <Paragraph className="font-sans !text-base md:!text-lg max-w-2xl text-center mb-8 text-luminous-mist-gray">
+                Welcome to my digital den! I&apos;m a Full Stack Developer passionate about creating beautiful, functional web experiences with modern technologies.
+              </Paragraph>
+              
+              <Space size="middle" className="mb-4">
+                <Button 
+                  type="primary" 
+                  size="large" 
+                  className="font-sans"
+                  icon={<ArrowDownOutlined />}
+                  onClick={() => scrollToSection('projects')}
+                >
+                  View Projects
+                </Button>
+                <Button 
+                  size="large" 
+                  className="font-sans"
+                  icon={<MailOutlined />}
+                  onClick={() => scrollToSection('contact')}
+                >
+                  Contact Me
+                </Button>
+                <Button 
+                  ghost 
+                  type="primary" 
+                  size="large" 
+                  className="font-sans" 
+                  icon={<DownloadOutlined />}
+                  href="#" // Add resume link here
+                >
+                  Resume
+                </Button>
+              </Space>
+
+              <Space size="middle" className="mt-2">
+                <Button type="text" icon={<GithubOutlined style={{ fontSize: '1.5rem' }} />} href="https://github.com/yourusername" target="_blank" />
+                <Button type="text" icon={<LinkedinOutlined style={{ fontSize: '1.5rem' }} />} href="#" target="_blank" />
+                <Button type="text" icon={<TwitterOutlined style={{ fontSize: '1.5rem' }} />} href="#" target="_blank" />
+                {/* Add other social media buttons as needed */}
+              </Space>
+            </div>
+          </Card>
+        </motion.div>
       </section>
 
-      {/* About Me Section */}
-      <section id="about" className="py-16 bg-fubuki-light-gray rounded-lg shadow-lg my-8">
+      {/* About Me Section - V3 Refactor */}
+      <section id="about" className="py-24">
         <div className="container mx-auto px-4">
-          <h2 className="font-display text-4xl font-bold text-center mb-12 text-fubuki-dark-blue">About Me</h2>
-          <div className="max-w-3xl mx-auto bg-fubuki-white p-8 rounded-lg shadow-md">
-            <p className="font-sans mb-4 text-fubuki-text-secondary">
-              As a Full Stack Engineer at Launchpad Philly, I design and develop full-stack applications using modern frameworks like React, Next.js, Firebase, TypeScript, and PostgreSQL. I&apos;ve delivered real-world solutions through sprint-based collaboration and creative problem solving. A standout project of mine is the Doki Doki Productivity Companion, an anime-themed AI tool that supports Pomodoro timing, goal tracking, and real-time analytics via virtual companions.
-            </p>
-            <p className="font-sans mb-4 text-fubuki-text-secondary">
-              Previously, I contributed to Bentley Systems, improving interaction with 3D model data in enterprise-grade internal apps. I&apos;m passionate about combining functionality with aesthetic flair and am constantly exploring new stacks and technologies. I&apos;m also certified in React and Python, and a proud graduate of Furness Horace High School.
-            </p>
-            <h3 className="font-display text-3xl font-semibold mt-8 mb-6 text-fubuki-dark-blue">My Skills</h3>
-            {/* Skills will be componentized later */}
-            <div className="flex flex-wrap gap-3 font-sans">
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">Python</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">TypeScript</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">HTML5</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">CSS3</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">React</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">Next.js</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">Tailwind CSS</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">Flask</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">Node.js</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">Git</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">GitHub</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">Firebase</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">VS Code</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">Vercel</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">Figma</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">Adobe Photoshop</span>
-              <span className="bg-fubuki-primary-blue/10 text-fubuki-primary-blue px-4 py-2 rounded-full text-sm font-medium">Canva</span>
-            </div>
-            {/* Placeholder for Fubuki-themed illustration or avatar */}
-          </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1, margin: "-100px" }}
+            variants={containerVariants}
+          >
+            <motion.div variants={itemVariants} className="text-center mb-16">
+              <Title level={2} className="font-display text-luminous-ghost-white">
+                About Me
+              </Title>
+            </motion.div>
+
+            <Row gutter={[32, 32]} className="mb-8 items-stretch">
+              <Col xs={24} lg={12} className="flex">
+                <motion.div variants={itemVariants} className="w-full h-full" ref={storyCardRef}>
+                  <Card
+                    variant="borderless"
+                    className="shadow-lg rounded-lg overflow-hidden flex flex-col"
+                    style={{
+                      background: 'rgba(20, 29, 43, 0.9)',
+                      backdropFilter: 'blur(10px)',
+                      height: cardRowHeight ? `${cardRowHeight}px` : 'auto',
+                    }}
+                    styles={{ body: { flexGrow: 1, color: 'var(--luminous-mist-gray)'} }}
+                  >
+                    <Title level={3} className="font-display !mb-6 !text-2xl text-luminous-ghost-white">
+                      My Story
+                    </Title>
+                    <Paragraph className="font-sans !text-base mb-4" style={{ color: 'var(--luminous-mist-gray)' }}>
+                      As a Full Stack Engineer at Launchpad Philly, I design and develop full-stack applications using modern frameworks like React, Next.js, Firebase, TypeScript, and PostgreSQL. I&apos;ve delivered real-world solutions through sprint-based collaboration and creative problem solving.
+                    </Paragraph>
+                    <Paragraph className="font-sans !text-base" style={{ color: 'var(--luminous-mist-gray)' }}>
+                      I&apos;m passionate about combining functionality with aesthetic flair and am constantly exploring new stacks and technologies. My standout project is the <Text strong className="text-luminous-lilac-tint">Doki Doki Productivity Companion</Text>, an anime-themed AI tool for productivity and goal tracking.
+                    </Paragraph>
+                  </Card>
+                </motion.div>
+              </Col>
+
+              <Col xs={24} lg={12} className="flex">
+                <motion.div variants={itemVariants} className="w-full h-full" ref={skillsCardRef}>
+                  <Card
+                    variant="borderless"
+                    className="shadow-lg rounded-lg overflow-hidden flex flex-col"
+                    style={{
+                      background: 'rgba(20, 29, 43, 0.9)',
+                      backdropFilter: 'blur(10px)',
+                      height: cardRowHeight ? `${cardRowHeight}px` : 'auto',
+                    }}
+                    styles={{ body: { flexGrow: 1, display: 'flex', flexDirection: 'column', color: 'var(--luminous-mist-gray)' } }}
+                  >
+                    <Tabs
+                      defaultActiveKey="skills"
+                      centered
+                      className="fubuki-tabs flex-grow flex flex-col"
+                      items={[
+                        {
+                          key: 'skills',
+                          label: (
+                            <span className="flex items-center font-sans px-2 py-1">
+                              <CodeOutlined className="mr-2" />
+                              Technical Skills
+                            </span>
+                          ),
+                          children: (
+                            <div className="pt-4 pb-2 flex-grow flex flex-col">
+                              <Space wrap className="justify-center mb-4 flex-shrink-0">
+                                {Object.keys(technicalSkills).map(category => (
+                                  <Button
+                                    key={category}
+                                    shape="round"
+                                    type={selectedSkillCategory === category ? "primary" : "default"}
+                                    onClick={() => setSelectedSkillCategory(category)}
+                                    className="font-sans text-sm"
+                                    size="middle"
+                                  >
+                                    {category}
+                                  </Button>
+                                ))}
+                              </Space>
+                              <div className="flex-grow overflow-y-auto">
+                                <Row gutter={[20, 20]}>
+                                  {technicalSkills[selectedSkillCategory as keyof typeof technicalSkills]?.map(skill => (
+                                    <Col xs={12} sm={12} md={8} lg={8} key={skill}>
+                                      <SkillCard
+                                        name={skill}
+                                        logoSrc={techLogos[skill] || "https://via.placeholder.com/48"}
+                                      />
+                                    </Col>
+                                  ))}
+                                </Row>
+                              </div>
+                            </div>
+                          ),
+                        },
+                        {
+                          key: 'certifications',
+                          label: (
+                            <span className="flex items-center font-sans px-2 py-1">
+                              <TrophyOutlined className="mr-2" />
+                              Certifications
+                            </span>
+                          ),
+                          children: (
+                            <div className="pt-4 pb-2 flex-grow overflow-y-auto">
+                              {certifications.map((cert, index) => (
+                                <CertificationCard
+                                  key={index}
+                                  title={cert.title}
+                                  issuer={cert.issuer}
+                                  issueDate={cert.issueDate}
+                                  expiryDate={cert.expiryDate}
+                                  certificateUrl={cert.certificateUrl}
+                                />
+                              ))}
+                            </div>
+                          ),
+                        },
+                        {
+                          key: 'education',
+                          label: (
+                            <span className="flex items-center font-sans px-2 py-1">
+                              <BookOutlined className="mr-2" />
+                              Education
+                            </span>
+                          ),
+                          children: (
+                            <div className="pt-4 pb-2 flex-grow overflow-y-auto">
+                              {education.map((edu, index) => (
+                                <EducationCard
+                                  key={index}
+                                  institution={edu.institution}
+                                  degree={edu.degree}
+                                  period={edu.period}
+                                />
+                              ))}
+                            </div>
+                          ),
+                        },
+                      ]}
+                    />
+                  </Card>
+                </motion.div>
+              </Col>
+            </Row>
+
+            {/* My Journey Timeline Card (Full Width Below) - Using AntD Timeline styled horizontally */}
+            <Row>
+              <Col xs={24}>
+                <motion.div variants={itemVariants}>
+                  <Card
+                    variant="borderless"
+                    className="shadow-lg rounded-lg overflow-hidden py-6"
+                    style={{
+                      background: 'rgba(20, 29, 43, 0.9)', // luminous-deep-navy with transparency
+                      backdropFilter: 'blur(10px)',
+                    }}
+                  >
+                    <Title level={3} className="font-display !mb-10 text-center text-luminous-ghost-white">
+                      My Professional Journey
+                    </Title>
+                    <div className="px-4 sm:px-8 overflow-x-auto pb-4"> {/* Container for horizontal scroll */}
+                      <Timeline 
+                        mode="left" // AntD doesn't have true horizontal, we use flex for items
+                        className="flex flex-row space-x-8 min-w-max py-2" // Flex row for items, min-width for scroll
+                      >
+                        {timelineItems.map((item, index) => (
+                          <Timeline.Item 
+                            key={index} 
+                            dot={item.icon || <RocketOutlined style={{ fontSize: '1.2rem', color: 'var(--luminous-glow-blue)'}}/>}
+                            className="flex-shrink-0 w-60 md:w-72" // Fixed width for each item
+                          >
+                            <div className="p-3 rounded-md bg-luminous-primary-blue/10 backdrop-blur-sm shadow">
+                              <Text strong className="font-sans block text-luminous-ghost-white text-sm md:text-base">
+                                {item.title}
+                              </Text>
+                              <Text className="font-sans text-luminous-lilac-tint text-xs md:text-sm block mb-1">
+                                {item.company}
+                              </Text>
+                              <Text type="secondary" italic className="font-sans text-xs block mb-2 text-luminous-mist-gray/80">
+                                {item.date}
+                              </Text>
+                              <Paragraph className="font-sans text-xs leading-relaxed text-luminous-mist-gray">
+                                {item.description}
+                              </Paragraph>
+                            </div>
+                          </Timeline.Item>
+                        ))}
+                      </Timeline>
+                    </div>
+                  </Card>
+                </motion.div>
+              </Col>
+            </Row>
+          </motion.div>
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-16 bg-fubuki-white rounded-lg shadow-lg my-8">
+      {/* Projects Section - Enhanced */}
+      <section id="projects" className="py-24 bg-luminous-deep-navy/30 backdrop-blur-sm">
         <div className="container mx-auto px-4">
-          <h2 className="font-display text-4xl font-bold text-center mb-12 text-fubuki-dark-blue">My Projects</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 font-sans">
-            {/* Project cards will go here - to be componentized */}
-            <div className="bg-fubuki-light-gray p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-              <h3 className="font-display text-xl font-semibold mb-2 text-fubuki-dark-blue">Placeholder Project 1</h3>
-              <p className="text-fubuki-text-secondary mb-4">A brief description of this amazing project. Will be updated soon with more details!</p>
-              <div className="text-sm text-fubuki-text-secondary/80 mb-4">
-                Tech: Next.js, Tailwind CSS, TypeScript
-              </div>
-              <div className="flex space-x-4">
-                <a href="#" className="text-fubuki-primary-blue hover:underline">GitHub</a>
-                <a href="#" className="text-fubuki-primary-blue hover:underline">Live Demo</a>
-              </div>
-            </div>
-            <div className="bg-fubuki-light-gray p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-              <h3 className="font-display text-xl font-semibold mb-2 text-fubuki-dark-blue">Placeholder Project 2</h3>
-              <p className="text-fubuki-text-secondary mb-4">Another cool project showcasing different skills and technologies. Stay tuned for updates!</p>
-              <div className="text-sm text-fubuki-text-secondary/80 mb-4">
-                Tech: Python, Flask, PostgreSQL
-              </div>
-              <div className="flex space-x-4">
-                <a href="#" className="text-fubuki-primary-blue hover:underline">GitHub</a>
-                {/* No live demo for this one yet */}
-              </div>
-            </div>
-            {/* Add more placeholder cards or a message if no projects yet */}
-          </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={containerVariants}
+          >
+            <motion.div variants={itemVariants}>
+              <Title level={2} className="font-display text-center !mb-4 text-luminous-ghost-white">
+                My Projects
+              </Title>
+              <Paragraph className="text-center !mb-16 max-w-2xl mx-auto text-luminous-mist-gray">
+                Here are some of my featured projects. Each one was an opportunity to learn and grow as a developer.
+              </Paragraph>
+            </motion.div>
+
+            <Row gutter={[24, 24]}>
+              {projects.map((project) => (
+                <Col xs={24} md={12} lg={8} key={project.title}>
+                  <motion.div variants={itemVariants}>
+                    <Card
+                      hoverable
+                      className="font-sans shadow-xl flex flex-col h-full overflow-hidden border-luminous-primary-blue/30"
+                      style={{ background: 'rgba(20, 29, 43, 0.9)', backdropFilter: 'blur(10px)' }}
+                      cover={
+                        project.imageUrl ? (
+                          <div className="overflow-hidden h-48 w-full relative">
+                            <Image
+                              alt={project.title} 
+                              src={project.imageUrl} 
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              className="object-cover transition-transform hover:scale-105 duration-700" 
+                            />
+                          </div>
+                        ) : null
+                      }
+                      actions={[
+                        project.githubUrl ? 
+                          <Tooltip title="View on GitHub">
+                            <Button key={`github-${project.title}`} type="text" icon={<GithubOutlined />} href={project.githubUrl} target="_blank" className="font-sans text-luminous-mist-gray">
+                              Code
+                            </Button>
+                          </Tooltip> : null,
+                        project.liveUrl ? 
+                          <Tooltip title="View Live Demo">
+                            <Button key={`live-${project.title}`} type="text" icon={<LinkOutlined />} href={project.liveUrl} target="_blank" className="font-sans text-luminous-mist-gray">
+                              Live Demo
+                            </Button>
+                          </Tooltip> : null,
+                      ].filter(Boolean) as React.ReactNode[]}
+                    >
+                      <Card.Meta
+                        title={<span className="font-display text-xl text-luminous-ghost-white">{project.title}</span>}
+                        description={<Paragraph className="font-sans text-sm text-luminous-mist-gray" style={{ minHeight: '84px' }}>{project.description}</Paragraph>}
+                      />
+                      <div className="mt-auto pt-4">
+                        <Text strong className="font-sans text-sm text-luminous-lilac-tint">Tech Stack:</Text>
+                        <div className="mt-2 flex flex-wrap gap-1">
+                          {project.tech.map(techName => (
+                            <Tag key={techName} color="geekblue" className="font-sans text-xs text-luminous-mist-gray">
+                              {techName}
+                            </Tag>
+                          ))}
+                        </div>
+                      </div>
+                    </Card>
+                  </motion.div>
+                </Col>
+              ))}
+            </Row>
+            
+            <motion.div variants={itemVariants} className="mt-16 text-center">
+              <Button type="primary" href="https://github.com/yourusername" target="_blank" size="large" className="text-luminous-ghost-white">
+                See More on GitHub
+              </Button>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-16 bg-fubuki-light-gray rounded-lg shadow-lg my-8">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="font-display text-4xl font-bold mb-8 text-fubuki-dark-blue">Get In Touch!</h2>
-          <p className="font-sans text-lg mb-6 text-fubuki-text-secondary">
-            Want to build something kon-mazing together or just say hi?
-          </p>
-          <a href="mailto:bryanwillsonbwg@gmail.com" className="font-sans inline-block bg-fubuki-primary-blue text-fubuki-white px-8 py-3 rounded-lg text-lg hover:bg-fubuki-dark-blue transition-colors shadow-md hover:shadow-lg">
-            Email Me
-          </a>
-          <p className="font-sans mt-8 text-fubuki-text-secondary">
-            Phone: <span className="text-fubuki-primary-blue">215-892-0211</span>
-          </p>
-          {/* Placeholder for Fubuki-themed illustration */}
+      {/* Contact Section - Enhanced */}
+      <section id="contact" className="py-24">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={containerVariants}
+            className="max-w-4xl mx-auto"
+          >
+            <motion.div variants={itemVariants}>
+              <Title level={2} className="font-display text-center !mb-4 text-luminous-ghost-white">
+                Get In Touch!
+              </Title>
+              <Paragraph className="text-center !mb-12 max-w-2xl mx-auto text-luminous-mist-gray">
+                Want to build something kon-mazing together? Have a question or just want to say hi? I&apos;d love to hear from you!
+              </Paragraph>
+            </motion.div>
+            
+            <motion.div variants={itemVariants}>
+              <Card 
+                variant="borderless" 
+                style={{ 
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+                  background: 'rgba(20, 29, 43, 0.9)',
+                  backdropFilter: 'blur(10px)'
+                }}
+                className="overflow-hidden"
+              >
+                <Row gutter={[32, 32]} align="middle">
+                  <Col xs={24} md={12} className="text-center md:text-left">
+                    <Title level={3} className="font-display !mb-6" style={{ color: 'var(--luminous-mist-gray)' }}>
+                      Contact Details
+                    </Title>
+                    
+                    <Space direction="vertical" size="large" className="w-full mb-8">
+                      <div>
+                        <Text strong className="font-sans block mb-1" style={{ color: 'var(--luminous-mist-gray)' }}>Email</Text>
+                        <Button type="link" href="mailto:bryanwillsonbwg@gmail.com" className="font-sans !p-0 flex items-center text-luminous-mist-gray">
+                          <MailOutlined className="mr-2" />
+                          bryanwillsonbwg@gmail.com
+                        </Button>
+                      </div>
+                      
+                      <div>
+                        <Text strong className="font-sans block mb-1" style={{ color: 'var(--luminous-mist-gray)' }}>Phone</Text>
+                        <Text className="font-sans text-luminous-lilac-tint">215-892-0211</Text>
+                      </div>
+                      
+                      <div>
+                        <Text strong className="font-sans block mb-2" style={{ color: 'var(--luminous-mist-gray)' }}>Find me on</Text>
+                        <Space size="middle">
+                          <Button type="primary" shape="circle" icon={<GithubOutlined />} href="https://github.com/yourusername" target="_blank" />
+                          <Button type="primary" shape="circle" icon={<LinkedinOutlined />} href="#" target="_blank" />
+                          <Button type="primary" shape="circle" icon={<TwitterOutlined />} href="#" target="_blank" />
+                        </Space>
+                      </div>
+                    </Space>
+                  </Col>
+                  
+                  <Col xs={24} md={12}>
+                    <div className="rounded-lg overflow-hidden bg-luminous-primary-blue bg-opacity-10 p-8 text-center">
+                      <Title level={4} className="font-display !mb-8" style={{ color: 'var(--luminous-mist-gray)' }}>
+                        Quick Connect
+                      </Title>
+                      
+                      <Paragraph className="font-sans !text-base mb-8 text-luminous-mist-gray">
+                        Send me an email and I&apos;ll get back to you as soon as possible!
+                      </Paragraph>
+                      
+                      <Button 
+                        type="primary" 
+                        href="mailto:bryanwillsonbwg@gmail.com" 
+                        size="large" 
+                        className="font-sans text-luminous-mist-gray" 
+                        icon={<MailOutlined />}
+                        block
+                      >
+                        Email Me
+                      </Button>
+                    </div>
+                  </Col>
+                </Row>
+              </Card>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </>

@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom Horizontal Timeline Styling - REMOVED */
+/* .fubuki-timeline { ... } */
+/* .fubuki-timeline .ant-timeline { ... } */
+/* .fubuki-timeline .ant-timeline-item { ... } */
+/* .fubuki-timeline .ant-timeline-item-content { ... } */
+/* .fubuki-timeline .ant-timeline-item-tail { ... } */
