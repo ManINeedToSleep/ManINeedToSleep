@@ -142,7 +142,7 @@ If you find my projects helpful or just want to support me, you can:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&color=8392b4)](https://www.linkedin.com/in/bryangunawan/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&color=323349)](https://github.com/ManINeedToSleep)
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=x&logoColor=white&color=9ECDDf)](https://twitter.com/BryanG20991)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white&color=d8dce1)](https://your-portfolio-url.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white&color=d8dce1)](https://notyet.com)
 
 </div>
 
