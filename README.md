@@ -1,6 +1,4 @@
 <div align="center">
-  <img src="public/image/Username.png" alt="ManINeedToSleep Banner" width="400" />
-  <br />
   <em>Crafting Cool Code, One Byte at a Time</em>
 
   [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=9ECDDf&center=true&vCenter=true&random=false&width=500&lines=Clean+Code+Enthusiast;AI+Whisperer;Late+Night+Debugger;Full-Stack+Developer;Always+Learning;Design-Minded+Builder)](https://git.io/typing-svg)
@@ -12,7 +10,7 @@
 
 ## 👋 About Me
 
-I'm **Bryan** (*aka ManINeedToSleep*), a full-stack developer passionate about building digital experiences that combine aesthetics, interactivity, and intelligence.
+I'm **Bryan Gunawan** (*aka ManINeedToSleep*), a full-stack developer passionate about building digital experiences that combine aesthetics, interactivity, and intelligence.
 
 - 🧠 Focused on **AI**, **creative tooling**, and **developer experience**
 - 🌐 Building projects that empower creators and foster communities
