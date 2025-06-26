@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 15 10% 8%;
+    --foreground: 270 20% 95%;
+
+    --card: 15 10% 8%;
+    --card-foreground: 270 20% 95%;
+
+    --popover: 15 10% 8%;
+    --popover-foreground: 270 20% 95%;
+
+    --primary: 270 50% 60%;
+    --primary-foreground: 15 10% 8%;
+
+    --secondary: 270 20% 20%;
+    --secondary-foreground: 270 20% 95%;
+
+    --muted: 270 20% 20%;
+    --muted-foreground: 270 10% 70%;
+
+    --accent: 270 20% 20%;
+    --accent-foreground: 270 20% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 270 20% 95%;
+
+    --border: 270 20% 25%;
+    --input: 270 20% 25%;
+    --ring: 270 50% 60%;
+
+    --radius: 0.5rem;
+  }
+
+  .moonlight {
+    --background: 220 30% 12%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 30% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 30% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 70%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 30% 25%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 30% 25%;
+    --muted-foreground: 215 20% 70%;
+
+    --accent: 217 30% 25%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 30% 30%;
+    --input: 217 30% 30%;
+    --ring: 217 91% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom animations */
+@keyframes lightning {
+  0%,
+  90%,
+  100% {
+    opacity: 0;
+  }
+  5%,
+  85% {
+    opacity: 1;
+  }
+}
+
+@keyframes storm {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(0.5deg);
+  }
+}
+
+@keyframes nightreign-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(147, 51, 234, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.6), 0 0 30px rgba(59, 130, 246, 0.4);
+  }
+}
+
+.animate-lightning {
+  animation: lightning 3s infinite;
+}
+
+.animate-storm {
+  animation: storm 8s ease-in-out infinite;
+}
+
+.animate-nightreign-glow {
+  animation: nightreign-glow 4s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgb(147, 51, 234), rgb(59, 130, 246));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, rgb(168, 85, 247), rgb(96, 165, 250));
+}
