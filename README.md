@@ -1,7 +1,7 @@
 <div align="center">
   <em>Crafting Cool Code, One Byte at a Time</em>
 
-  [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=9ECDDf&center=true&vCenter=true&random=false&width=500&lines=Clean+Code+Enthusiast;AI+Whisperer;Late+Night+Debugger;Full-Stack+Developer;Always+Learning;Design-Minded+Builder)](https://git.io/typing-svg)
+  [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=9ECDDf&center=true&vCenter=true&random=false&width=500&lines=Clean+Code+Enthusiast;Late+Night+Debugger;Full-Stack+Developer;Always+Learning;Design-Minded+Builder)](https://git.io/typing-svg)
 
   <img src="https://komarev.com/ghpvc/?username=ManINeedToSleep&style=flat-square&color=9ecddf" alt="Profile Views" />
 </div>
