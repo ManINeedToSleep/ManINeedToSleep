@@ -19,13 +19,14 @@ export function AboutSection() {
             className="relative order-2 lg:order-1"
           >
             <div className="relative aspect-square max-w-sm md:max-w-md mx-auto lg:mx-0 overflow-hidden rounded-lg border border-purple-500/30 shadow-lg">
-              <Image
-                src="/placeholder.svg?height=400&width=400"
-                alt="Developer portrait"
-                width={400}
-                height={400}
-                className="object-cover"
-              />
+              <div className="absolute inset-0 w-full h-full">
+                <Image
+                  src="/AnotherPicture.png"
+                  alt="Developer portrait"
+                  fill
+                  className="object-cover w-full h-full"
+                />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
 
               {/* Animated rune border */}

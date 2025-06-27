@@ -65,10 +65,10 @@ export function Navbar() {
                 }}
               />
               <div className="absolute inset-0 flex items-center justify-center text-white font-serif font-bold text-sm">
-                N
+                B
               </div>
             </motion.div>
-            <span className="font-serif text-lg text-purple-200 hidden sm:block">Nightreign</span>
+            <span className="font-serif text-lg text-purple-200 hidden sm:block">Bryan Gunawan</span>
           </Link>
 
           {/* Desktop Menu */}

@@ -2,7 +2,7 @@
 
 import { Canvas } from "@react-three/fiber"
 import { Stars } from "@react-three/drei"
-import { useRef, useMemo } from "react"
+import { useRef, useMemo, useEffect, useState } from "react"
 import { useFrame } from "@react-three/fiber"
 import * as THREE from "three"
 
@@ -111,6 +111,16 @@ function DataStream() {
 }
 
 export function TechScene() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
+
   return (
     <Canvas camera={{ position: [0, 0, 10], fov: 60 }} style={{ pointerEvents: "none" }}>
       <ambientLight intensity={0.15} />

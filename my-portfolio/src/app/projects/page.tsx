@@ -1,6 +1,6 @@
 import { ProjectCard } from "@/components/project-card"
 import { ThemeToggle } from "@/components/moonlight-toggle"
-import { projects } from "../../../data/projects"
+import { projects } from "@/data/projects"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"

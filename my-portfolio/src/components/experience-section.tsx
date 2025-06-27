@@ -7,41 +7,58 @@ export function ExperienceSection() {
   const experiences = [
     {
       type: "education",
-      title: "Computer Science",
-      organization: "University of Technology",
-      period: "2020 - 2024",
-      description: "Bachelor's degree with focus on software engineering and web development",
+      title: "High School Diploma",
+      organization: "Furness Horace High School",
+      period: "2023 - 2024",
+      description: `Completed a two-year Computer Science track (block-based coding, HTML, CSS, JavaScript). CS Class Teacher's Assistant, supported classmates with debugging, design, and projects.`,
       icon: GraduationCap,
     },
     {
       type: "work",
-      title: "Frontend Developer",
-      organization: "Tech Startup Inc.",
-      period: "2023 - Present",
-      description: "Building responsive web applications using React and TypeScript",
+      title: "Full Stack Engineer (Apprenticeship)",
+      organization: "Launchpad Philly",
+      period: "Sep 2023 - Present",
+      description: `Designed and developed full-stack apps (React, Next.js, Firebase, TypeScript, PostgreSQL). Led Doki Doki Productivity Companion, Nexus Social, Philly Social (Drexel hackathon). Practiced Agile, Git, teamwork.`,
+      icon: Briefcase,
+    },
+    {
+      type: "work",
+      title: "Software Engineering Intern",
+      organization: "Bentley Systems",
+      period: "July 2024 - Aug 2024",
+      description: `Enhanced 3D model data interaction for internal web app for building and infrastructure projects.`,
       icon: Briefcase,
     },
     {
       type: "certification",
-      title: "AWS Cloud Practitioner",
-      organization: "Amazon Web Services",
+      title: "Learn React Course",
+      organization: "Codecademy",
       period: "2023",
-      description: "Cloud computing fundamentals and AWS services certification",
+      description: "Completed Codecademy's Learn React Course.",
       icon: Award,
     },
   ]
 
   const techStack = [
-    "React",
+    "React.js",
     "Next.js",
     "TypeScript",
-    "Node.js",
+    "JavaScript",
+    "Firebase",
     "PostgreSQL",
-    "AWS",
-    "Docker",
-    "Tailwind CSS",
-    "GraphQL",
-    "MongoDB",
+    "UI Design",
+    "Front-End Development",
+    "Agile",
+    "Git",
+    "Socket.io",
+    "Framer Motion",
+    "Recharts",
+    "HTML/CSS",
+  ]
+
+  const achievements = [
+    "Graduated Launchpad Philly program",
+    "Tabled at Cesium Conference",
   ]
 
   return (
@@ -128,18 +145,12 @@ export function ExperienceSection() {
             <div className="mt-6 bg-black/40 backdrop-blur-sm border border-purple-500/20 rounded-lg p-6">
               <h4 className="font-serif text-lg text-purple-200 mb-4">Recent Achievements</h4>
               <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <Award className="w-4 h-4 text-purple-400" />
-                  <span className="text-purple-100/80 text-sm">AWS Cloud Practitioner Certified</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Award className="w-4 h-4 text-purple-400" />
-                  <span className="text-purple-100/80 text-sm">React Developer Certification</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Award className="w-4 h-4 text-purple-400" />
-                  <span className="text-purple-100/80 text-sm">Dean's List - 3.8 GPA</span>
-                </div>
+                {achievements.map((ach, idx) => (
+                  <div className="flex items-center gap-3" key={idx}>
+                    <Award className="w-4 h-4 text-purple-400" />
+                    <span className="text-purple-100/80 text-sm">{ach}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>

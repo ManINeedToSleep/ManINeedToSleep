@@ -27,7 +27,7 @@ export function HeroSection() {
           >
             <div className="relative w-80 h-80 mx-auto">
               <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/30 to-green-600/30 blur-xl"
+                className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/30 to-purple-600/30 blur-xl"
                 animate={{
                   scale: [1, 1.1, 1],
                   opacity: [0.3, 0.6, 0.3],
@@ -40,11 +40,11 @@ export function HeroSection() {
               />
               <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-blue-400/50 shadow-2xl">
                 <Image
-                  src="/placeholder.svg?height=320&width=320"
+                  src="/ProfilePicture.png"
                   alt="Bryan Gunawan - Full-Stack Developer Portrait"
                   width={320}
                   height={320}
-                  className="object-cover w-full h-full"
+                  className="object-cover w-full h-full object-top"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
@@ -57,7 +57,7 @@ export function HeroSection() {
                 transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               />
               <motion.div
-                className="absolute inset-4 border border-green-400/20 rounded-full"
+                className="absolute inset-4 border border-purple-400/20 rounded-full"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               />
@@ -83,12 +83,12 @@ export function HeroSection() {
               transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
             >
               <span className="text-xs uppercase tracking-widest text-blue-300 border border-blue-500/50 px-3 py-1 rounded-full">
-                Full-Stack Developer
+                Full-Stack Engineer
               </span>
             </motion.div>
 
             <motion.h1
-              className="font-serif text-4xl md:text-6xl mb-4 text-transparent bg-clip-text bg-gradient-to-br from-blue-200 via-green-300 to-blue-400"
+              className="font-serif text-4xl md:text-6xl mb-4 text-transparent bg-clip-text bg-gradient-to-br from-blue-200 via-purple-300 to-blue-400"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -113,7 +113,7 @@ export function HeroSection() {
             >
               Crafting innovative digital experiences with modern web technologies. I specialize in React, Next.js, and
               TypeScript to build scalable applications that solve real-world problems. From concept to deployment, I
-              bring ideas to life through clean, efficient code.
+              bring ideas to life through code.
             </motion.p>
           </motion.div>
         </div>
