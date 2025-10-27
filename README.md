@@ -63,9 +63,6 @@ Hey, I’m **Bryan Gunawan** (*aka ManINeedToSleep*),a **full-stack developer**,
 ## 🔥 Featured Projects
 
 <div align="center">
-  <a href="https://github.com/ManINeedToSleep/PhishGuard">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=PhishGuard&theme=transparent&title_color=9EF6FF&text_color=cccccc&icon_color=9EF6FF&hide_border=true" />
-  </a>
   <a href="https://github.com/ManINeedToSleep/DokiDoki_Productivity_CompanionV2">
     <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=DokiDoki_Productivity_CompanionV2&theme=transparent&title_color=9EF6FF&text_color=cccccc&icon_color=9EF6FF&hide_border=true" />
   </a>
@@ -99,5 +96,6 @@ Hey, I’m **Bryan Gunawan** (*aka ManINeedToSleep*),a **full-stack developer**,
   <em>“What is beauty, if it is not the progress that we bring into this world?”</em><br/>
   <em>– Bryan Gunawan</em>
 </div>
+
 
 
