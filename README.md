@@ -1,128 +1,104 @@
 <div align="center">
-  <em>Crafting Cool Code, One Byte at a Time</em>
 
-  [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=9ECDDf&center=true&vCenter=true&random=false&width=500&lines=Clean+Code+Enthusiast;Late+Night+Debugger;Full-Stack+Developer;Always+Learning;Design-Minded+Builder)](https://git.io/typing-svg)
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=9EF6FF&center=true&vCenter=true&random=false&width=550&lines=Crafting+Intelligent+Experiences;%26+Full-Stack+Maker;AI+Tooling+%7C+Homelab+%7C+Linux;Always+Learning%2C+Always+Shipping" alt="Typing SVG" />
 
-  <img src="https://komarev.com/ghpvc/?username=ManINeedToSleep&style=flat-square&color=9ecddf" alt="Profile Views" />
+  <img src="https://komarev.com/ghpvc/?username=ManINeedToSleep&style=flat-square&color=9EF6FF" alt="Profile Views" />
 </div>
 
 ---
 
-## 👋 About Me
+## 🧭 About Me
 
-I'm **Bryan Gunawan** (*aka ManINeedToSleep*), a full-stack developer passionate about building digital experiences that combine aesthetics, interactivity, and intelligence.
+Hey, I’m **Bryan Gunawan** (*aka ManINeedToSleep*) — a **full-stack developer**, **AI tinkerer**, and **homelab enthusiast** obsessed with building systems that *look good, think smart,* and *just work*.
 
-- 🧠 Focused on **AI**, **creative tooling**, and **developer experience**
-- 🌐 Building projects that empower creators and foster communities
-- 🔭 Currently working on a social media analytics dashboard for small creators
-- 🧪 Exploring AI-powered productivity tools and assistants
-- 🎯 Always learning, shipping, and iterating
+- 💡 Exploring more interesting **AI-augmented works** and **developer experience tooling**
+- 🖥️ Currently dualbooting **Linux + Windows** and doing **Homelab** projects  
+- 🧋 Fueled by coffee, jasmine tea, and curiosity
 
 ---
 
-## 🛠️ Tech Stack
+## ⚙️ Tech Stack
 
 ### Languages  
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white&color=9ECDDf" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white&color=8392b4" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black&color=d8dce1" />
+  <img src="https://img.shields.io/badge/Python-0A0A0A?style=for-the-badge&logo=python&logoColor=9EF6FF" />
+  <img src="https://img.shields.io/badge/TypeScript-0A0A0A?style=for-the-badge&logo=typescript&logoColor=9EF6FF" />
+  <img src="https://img.shields.io/badge/JavaScript-0A0A0A?style=for-the-badge&logo=javascript&logoColor=9EF6FF" />
 </p>
 
 ### Frontend  
 <p align="center">
-  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black&color=9ECDDf" />
-  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white&color=323349" />
-  <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white&color=9ECDDf" />
+  <img src="https://img.shields.io/badge/Next.js-0A0A0A?style=for-the-badge&logo=next.js&logoColor=9EF6FF" />
+  <img src="https://img.shields.io/badge/React-0A0A0A?style=for-the-badge&logo=react&logoColor=9EF6FF" />
+  <img src="https://img.shields.io/badge/TailwindCSS-0A0A0A?style=for-the-badge&logo=tailwindcss&logoColor=9EF6FF" />
+  <img src="https://img.shields.io/badge/Framer%20Motion-0A0A0A?style=for-the-badge&logo=framer&logoColor=9EF6FF" />
 </p>
 
 ### Backend  
 <p align="center">
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white&color=8392b4" />
-  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white&color=323349" />
+  <img src="https://img.shields.io/badge/Node.js-0A0A0A?style=for-the-badge&logo=node.js&logoColor=9EF6FF" />
+  <img src="https://img.shields.io/badge/Prisma-0A0A0A?style=for-the-badge&logo=prisma&logoColor=9EF6FF" />
+  <img src="https://img.shields.io/badge/PostgreSQL-0A0A0A?style=for-the-badge&logo=postgresql&logoColor=9EF6FF" />
+  <img src="https://img.shields.io/badge/Neon-0A0A0A?style=for-the-badge&logo=neon&logoColor=9EF6FF" />
 </p>
 
-### Tools & Platforms  
+### Infrastructure & Systems  
 <p align="center">
-  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white&color=323349" />
-  <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black&color=d8dce1" />
-  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white&color=323349" />
-  <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white&color=8392b4" />
+  <img src="https://img.shields.io/badge/Linux-0A0A0A?style=for-the-badge&logo=linux&logoColor=9EF6FF" />
+  <img src="https://img.shields.io/badge/Debian-0A0A0A?style=for-the-badge&logo=debian&logoColor=9EF6FF" />
+  <img src="https://img.shields.io/badge/Docker-0A0A0A?style=for-the-badge&logo=docker&logoColor=9EF6FF" />
+  <img src="https://img.shields.io/badge/Vercel-0A0A0A?style=for-the-badge&logo=vercel&logoColor=9EF6FF" />
 </p>
 
-### Creative & Design  
+### Creative & Tooling  
 <p align="center">
-  <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white&color=9ECDDf" />
-  <img src="https://img.shields.io/badge/Photoshop-31A8FF?style=for-the-badge&logo=Adobe%20Photoshop&logoColor=black&color=d8dce1" />
+  <img src="https://img.shields.io/badge/Figma-0A0A0A?style=for-the-badge&logo=figma&logoColor=9EF6FF" />
+  <img src="https://img.shields.io/badge/Photoshop-0A0A0A?style=for-the-badge&logo=adobephotoshop&logoColor=9EF6FF" />
+  <img src="https://img.shields.io/badge/OpenAI%20API-0A0A0A?style=for-the-badge&logo=openai&logoColor=9EF6FF" />
+  <img src="https://img.shields.io/badge/LangChain-0A0A0A?style=for-the-badge&logo=chainlink&logoColor=9EF6FF" />
 </p>
 
 ---
 
-## 📊 GitHub Insights  
-
-<details>
-<summary><strong>Click to expand</strong></summary>
+## 🔥 Featured Projects
 
 <div align="center">
-
-### 🏆 Trophy Showcase
-[![Trophies](https://github-profile-trophy.vercel.app/?username=ManINeedToSleep&theme=dracula&no-bg=true&no-frame=true&column=4)](https://github.com/ryo-ma/github-profile-trophy)
-
-### 🔥 GitHub Stats
-<img src="https://github-readme-stats.vercel.app/api?username=ManINeedToSleep&theme=monokai-pro&show_icons=true&bg_color=00000000&text_color=fff&title_color=9ECDDf&hide_border=true&count_private=true" />
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ManINeedToSleep&layout=compact&theme=monokai-pro&bg_color=00000000&text_color=fff&title_color=9ECDDf&hide_border=true" />
-
-<img src="https://streak-stats.demolab.com?user=ManINeedToSleep&theme=monokai-pro&background=00000000" />
-
-<img src="https://github-readme-activity-graph.vercel.app/graph/?username=ManINeedToSleep&bg_color=272822&color=d8dce1&line=9ECDDf&point=f1f1f1&hide_border=true" />
-
-</div>
-</details>
-
----
-
-## 🚀 Featured Projects
-
-<div align="center">
-  <a href="https://github.com/ManINeedToSleep/Nexus-Social">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=Nexus-Social&theme=monokai-pro&bg_color=00000000&title_color=9ECDDf&text_color=ffffff&icon_color=9ECDDf&hide_border=true" />
+  <a href="https://github.com/ManINeedToSleep/PhishGuard">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=PhishGuard&theme=transparent&title_color=9EF6FF&text_color=cccccc&icon_color=9EF6FF&hide_border=true" />
   </a>
   <a href="https://github.com/ManINeedToSleep/DokiDoki_Productivity_CompanionV2">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=DokiDoki_Productivity_CompanionV2&theme=monokai-pro&bg_color=00000000&title_color=9ECDDf&text_color=ffffff&icon_color=9ECDDf&hide_border=true" />
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=DokiDoki_Productivity_CompanionV2&theme=transparent&title_color=9EF6FF&text_color=cccccc&icon_color=9EF6FF&hide_border=true" />
+  </a>
+  <a href="https://github.com/ManINeedToSleep/Nexus-Social">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=Nexus-Social&theme=transparent&title_color=9EF6FF&text_color=cccccc&icon_color=9EF6FF&hide_border=true" />
+  </a>
+  <a href="https://github.com/ManINeedToSleep/Omnilytics">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=Omnilytics&theme=transparent&title_color=9EF6FF&text_color=cccccc&icon_color=9EF6FF&hide_border=true" />
   </a>
 </div>
 
 ---
 
-## 🤝 Support My Work
+## 🧠 Current Focus
 
-<div align="center">
-  <a href="https://www.buymeacoffee.com/manineedtosleep"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" /></a>
-  <a href="https://ko-fi.com/ManINeedToSleep"><img src="https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white" /></a>
-</div>
-
----
-
-## 🌐 Let's Connect
-
-<div align="center">
-  <a href="https://www.linkedin.com/in/bryangunawan/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&color=8392b4" /></a>
-  <a href="https://github.com/ManINeedToSleep"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&color=323349" /></a>
-  <a href="https://twitter.com/BryanG20991"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=x&logoColor=white&color=9ECDDf" /></a>
-  <a href="https://notyet.com"><img src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white&color=d8dce1" /></a>
-</div>
+- ✨ Playing around with dual-booting **Linux**  
+- ⚙️ Expanding my **homelab** (Vaultwarden, Jellyfin, Tailscale)  
+- 🧩 Learning **Next.js 15 App Router + Tailwind 4 workflow**  
+- 🌸 Building aesthetic, human-centered UIs with purpose
 
 ---
 
+## 🌐 Connect
+
 <div align="center">
-  <em>"First, solve the problem. Then, write the code." – John Johnson</em><br/>
-  <em>“Hamburger please!” – Shirakami Fubuki</em>
+  <a href="https://www.linkedin.com/in/bryangunawan/"><img src="https://img.shields.io/badge/LinkedIn-0A0A0A?style=for-the-badge&logo=linkedin&logoColor=9EF6FF" /></a>
+  <a href="https://github.com/ManINeedToSleep"><img src="https://img.shields.io/badge/GitHub-0A0A0A?style=for-the-badge&logo=github&logoColor=9EF6FF" /></a>
+  <a href="https://twitter.com/BryanG20991"><img src="https://img.shields.io/badge/Twitter-0A0A0A?style=for-the-badge&logo=x&logoColor=9EF6FF" /></a>
 </div>
 
 ---
 
 <div align="center">
-  <img src="https://forthebadge.com/images/badges/built-by-developers.svg" />
-  <img src="https://forthebadge.com/images/badges/powered-by-coffee.svg" />
+  <em>“Simplicity isn’t a lack of complexity — it’s control over chaos.”</em><br/>
+  <em>– Bryan Gunawan</em>
 </div>
