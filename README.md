@@ -9,7 +9,7 @@
 
 ## 🧭 About Me
 
-Hey, I’m **Bryan Gunawan** (*aka ManINeedToSleep*) — a **full-stack developer**, **AI tinkerer**, and **homelab enthusiast** obsessed with building systems that *look good, think smart,* and *just work*.
+Hey, I’m **Bryan Gunawan** (*aka ManINeedToSleep*),a **full-stack developer**, **AI tinkerer**, and **homelab enthusiast** obsessed with building systems that *look good, think smart,* and *just work*.
 
 - 💡 Exploring more interesting **AI-augmented works** and **developer experience tooling**
 - 🖥️ Currently dualbooting **Linux + Windows** and doing **Homelab** projects  
@@ -99,4 +99,5 @@ Hey, I’m **Bryan Gunawan** (*aka ManINeedToSleep*) — a **full-stack develope
   <em>“What is beauty, if it is not the progress that we bring into this world?”</em><br/>
   <em>– Bryan Gunawan</em>
 </div>
+
 
