@@ -81,11 +81,8 @@ Hey, I’m **Bryan Gunawan** (*aka ManINeedToSleep*) — a **full-stack develope
 
 ## 🧠 Current Focus
 
-- ✨ Playing around with dual-booting **Linux**  
+- ✨ Playing around with dual-booting **Linux & Windows**  
 - ⚙️ Expanding my **homelab** (Vaultwarden, Jellyfin, Tailscale)  
-- 🧩 Learning **Next.js 15 App Router + Tailwind 4 workflow**  
-- 🌸 Building aesthetic, human-centered UIs with purpose
-
 ---
 
 ## 🌐 Connect
@@ -99,6 +96,7 @@ Hey, I’m **Bryan Gunawan** (*aka ManINeedToSleep*) — a **full-stack develope
 ---
 
 <div align="center">
-  <em>“Simplicity isn’t a lack of complexity — it’s control over chaos.”</em><br/>
+  <em>“What is beauty, if it is not the progress that we bring into this world?”</em><br/>
   <em>– Bryan Gunawan</em>
 </div>
+
