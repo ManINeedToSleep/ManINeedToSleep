@@ -1,41 +1,39 @@
 # Main Page Build — Coordination Plan
 
 ## Snapshot of What Exists
-- `mainpage.md` documents the full UX intent for the main page sections (nav → hero → projects → about → experiences → contact) and desired motion cues.
-- `src/components/site/intro-scene.tsx` delivers the Minty Bounce intro overlay with dialogue sequencing, already wired for integration.
-- `src/app/(site)/page.tsx` still serves a minimal text-only placeholder; none of the documented sections are implemented yet.
-- `src/components/site/project-card.tsx` and `post-card.tsx` are empty stubs, so project/about/experience UI primitives still need to be created.
-- Content sources (`src/content/projects/*.mdx`, `src/content/blog/*.mdx`) and global config (`src/config/site.ts`) are ready for wiring into the new layout.
+- `mainpage.md` outlines the full UX intent (nav → hero → projects → about → experiences → contact) and motion cues.
+- `src/components/site/intro-scene.tsx` powers the Minty Bounce intro, now wrapped by `IntroGate` for storage-aware playback and soft fade into the page.
+- `src/app/(site)/page.tsx` renders the complete layout: hero, featured projects, about, experiences, contact, and “Other Minty Corners”.
+- `src/components/site/*.tsx` implements the hero/about/experiences/contact sections plus project cards; `project-card.tsx` pulls live MDX data.
+- Content sources (`src/content/projects/*.mdx`, `src/content/blog/*.mdx`) and `src/config/site.ts` are ready for copy refresh.
 
-## Scope: “Base of the Body” Delivery
-Goal for this iteration: ship a responsive, scroll-friendly skeleton of the main page that matches the documented section order, with placeholder data where needed but production-ready structure, semantics, and spacing.
+## Scope: “Base of the Body” Delivery — Status
+Goal for this iteration was to ship a responsive, scroll-friendly skeleton of the main page. ✅ Completed:
 
-- Persistent navigation bar with anchor links and active-section styling hooks.
-- Hero panel with profile image slot, name/title copy, and short blurb; ensure intro overlay can fade onto this section cleanly.
-- Featured Projects grid pulling from MDX content (start with three cards, graceful fallback if fewer exist).
-- Short About Me block with overlapping imagery containers and paragraph copy.
-- Featured Experiences timeline scaffold (nodes + text slots, horizontal on desktop, stacked fallback on mobile).
-- Contact section containing form inputs and space for social/profile callouts (submission can be stubbed but markup + validation hooks should exist).
+- Navigation bar with anchor links and sticky behavior.
+- Hero panel (profile focus, copy, intro overlay compatibility).
+- Featured Projects grid wired to MDX content with mint hover treatment.
+- Short About Me section with overlapping imagery and highlight bullets.
+- Experiences showcased via responsive card grid (timeline variant deferred).
+- Contact section with mint-styled form and callout area (submission still stubbed).
 
 ## Agent Workstreams
-### Artist Agent
-- Finalize visual references for each section: colors, spacing rhythm, hover/scroll states (tie back to mint palette in `mainpage.md`).
-- Provide component-level guidance for project cards, timeline nodes, and contact form styling so Programmer can translate directly.
-- Define motion guidelines for section entrances (thresholds, directions, reduced-motion alternatives).
+### Artist Agent (current focus)
+- Deepen styling polish: nav treatment, ambient gradients, micro-interactions, section separators.
+- Provide updated imagery (hero profile, about photos, project thumbnails) and motion specs (staggered entrances, reduced-motion alternatives).
 
-### Programmer Agent
-- Implement the new main page layout inside `src/app/(site)/page.tsx`, honoring the section order and semantics described above.
-- Build reusable UI pieces in `src/components/site/` (e.g., `HeroSection`, `ProjectsSection`, `ExperienceTimeline`, `ContactForm`) and wire them to MDX content where applicable.
-- Ensure smooth handoff with `IntroOverlay`: allow page content to render beneath and animate in once intro completes.
-- Add Tailwind utility classes or extracted components to match Artist specifications; keep accessibility in mind (headings hierarchy, ARIA for timeline).
+### Programmer Agent (next sprint)
+- Implement Artist’s polish directives (spacing, motion, asset swaps).
+- Extend functionality: project modals, interaction details, contact validation/backend stub.
+- Ensure accessibility remains strong post-polish.
 
-### SEO Agent
-- Review the updated layout for proper heading structure, landmark roles, and link text.
-- Prepare meta copy updates (`src/config/site.ts`) once new hero/about content lands.
-- Draft structured data (JSON-LD for person + projects) to add after Programmer exposes the necessary fields.
+### SEO Agent (upcoming)
+- Reassess heading structure and landmarks once styling stabilizes.
+- Update `src/config/site.ts` metadata with final copy, prepare JSON-LD for person/projects.
+- Coordinate with Programmer for any additional SEO hooks (structured data, sitemap refresh).
 
 ## Dependencies & Notes
-- Programmer and Artist should agree on placeholder assets (profile image leaf icons) to avoid rework.
-- Consider creating mock project/about data files this sprint so sections render with real content during development.
-- Once the base body is stable, plan a follow-up cycle for micro-interactions, modal flow for projects, and dark-mode toggle.
+- Artist & Programmer to align on final imagery/asset selection to prevent rework.
+- Populate MDX content with real copy/media during styling phase for accurate previews.
+- After polish sprint, consider follow-up for modals, enhanced interactions, and optional dark-mode toggle.
 
