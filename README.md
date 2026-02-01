@@ -1,94 +1,85 @@
-<div align="center">
+<h1 align="center">Bryan Gunawan</h1>
+<h3 align="center">A Passionate Full Stack/Web developer | Software Engineer Enthusiast</h3>
 
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=9EF6FF&center=true&vCenter=true&random=false&width=550&lines=Crafting+Intelligent+Experiences;%26+Full-Stack+Maker;AI+Tooling+%7C+Homelab+%7C+Linux;Always+Learning%2C+Always+Shipping" alt="Typing SVG" />
+<p align="center">Hello to everyone that's reading this! The name's Bryan, Bryan Gunawan. Ignore the username, haha, it's a little inside joke with me and those in my program. Anyways, I'm a <b>Full-Stack Software Engineer</b> that's been working with computers and websites since... 2023? Officially, that is. I've always been the type to do a lot with code since highschool as quoted my computer class teaacher, <b>"One of, if not, the best students I had in my computer class."</b> No glaze of course. But, this compliment had really pushed me to be better and strive for more in the tech industry. When it comes to the things I built, I always take note and importance of <b>Front-End</b> and <b>User Experience</b> whilst also making sure that my clients has their needs and wants built as they've imagined it to be. </p>
 
-  <img src="https://komarev.com/ghpvc/?username=ManINeedToSleep&style=flat-square&color=9EF6FF" alt="Profile Views" />
-</div>
+<h2 align="center"> Connect with me </h2>
 
----
-
-## 🧭 About Me
-
-Hey, I’m **Bryan Gunawan** (*aka ManINeedToSleep*),a **full-stack developer**, **AI tinkerer**, and **homelab enthusiast** obsessed with building systems that *look good, think smart,* and *just work*.
-
-- 💡 Exploring more interesting **AI-augmented works** and **developer experience tooling**
-- 🖥️ Currently dualbooting **Linux + Windows** and doing **Homelab** projects  
-- 🧋 Fueled by coffee, jasmine tea, and curiosity
-
----
-
-## ⚙️ Tech Stack
-
-### Languages  
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-0A0A0A?style=for-the-badge&logo=python&logoColor=9EF6FF" />
-  <img src="https://img.shields.io/badge/TypeScript-0A0A0A?style=for-the-badge&logo=typescript&logoColor=9EF6FF" />
-  <img src="https://img.shields.io/badge/JavaScript-0A0A0A?style=for-the-badge&logo=javascript&logoColor=9EF6FF" />
-</p>
-
-### Frontend  
-<p align="center">
-  <img src="https://img.shields.io/badge/Next.js-0A0A0A?style=for-the-badge&logo=next.js&logoColor=9EF6FF" />
-  <img src="https://img.shields.io/badge/React-0A0A0A?style=for-the-badge&logo=react&logoColor=9EF6FF" />
-  <img src="https://img.shields.io/badge/TailwindCSS-0A0A0A?style=for-the-badge&logo=tailwindcss&logoColor=9EF6FF" />
-  <img src="https://img.shields.io/badge/Framer%20Motion-0A0A0A?style=for-the-badge&logo=framer&logoColor=9EF6FF" />
-</p>
-
-### Backend  
-<p align="center">
-  <img src="https://img.shields.io/badge/Node.js-0A0A0A?style=for-the-badge&logo=node.js&logoColor=9EF6FF" />
-  <img src="https://img.shields.io/badge/Prisma-0A0A0A?style=for-the-badge&logo=prisma&logoColor=9EF6FF" />
-  <img src="https://img.shields.io/badge/PostgreSQL-0A0A0A?style=for-the-badge&logo=postgresql&logoColor=9EF6FF" />
-  <img src="https://img.shields.io/badge/Neon-0A0A0A?style=for-the-badge&logo=neon&logoColor=9EF6FF" />
-</p>
-
-### Infrastructure & Systems  
-<p align="center">
-  <img src="https://img.shields.io/badge/Linux-0A0A0A?style=for-the-badge&logo=linux&logoColor=9EF6FF" />
-  <img src="https://img.shields.io/badge/Debian-0A0A0A?style=for-the-badge&logo=debian&logoColor=9EF6FF" />
-  <img src="https://img.shields.io/badge/Docker-0A0A0A?style=for-the-badge&logo=docker&logoColor=9EF6FF" />
-  <img src="https://img.shields.io/badge/Vercel-0A0A0A?style=for-the-badge&logo=vercel&logoColor=9EF6FF" />
-</p>
-
-### Creative & Tooling  
-<p align="center">
-  <img src="https://img.shields.io/badge/Figma-0A0A0A?style=for-the-badge&logo=figma&logoColor=9EF6FF" />
-  <img src="https://img.shields.io/badge/Photoshop-0A0A0A?style=for-the-badge&logo=adobephotoshop&logoColor=9EF6FF" />
-  <img src="https://img.shields.io/badge/OpenAI%20API-0A0A0A?style=for-the-badge&logo=openai&logoColor=9EF6FF" />
-  <img src="https://img.shields.io/badge/LangChain-0A0A0A?style=for-the-badge&logo=chainlink&logoColor=9EF6FF" />
-</p>
-
----
-
-## 🔥 Featured Projects
-
-<div align="center">
-  <a href="https://github.com/ManINeedToSleep/DokiDoki_Productivity_CompanionV2">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=DokiDoki_Productivity_CompanionV2&theme=transparent&title_color=9EF6FF&text_color=cccccc&icon_color=9EF6FF&hide_border=true" />
+  <a href="https://www.linkedin.com/in/bryan-gunawan-a537132b9/">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
   </a>
-  <a href="https://github.com/ManINeedToSleep/Nexus-Social">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=Nexus-Social&theme=transparent&title_color=9EF6FF&text_color=cccccc&icon_color=9EF6FF&hide_border=true" />
+  <a href="https://leetcode.com/u/manineedtosleep/">
+    <img src="https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=LeetCode&logoColor=black" />
   </a>
-  <a href="https://github.com/ManINeedToSleep/Omnilytics">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ManINeedToSleep&repo=Omnilytics&theme=transparent&title_color=9EF6FF&text_color=cccccc&icon_color=9EF6FF&hide_border=true" />
+  <a href="#">
+    <img src="https://img.shields.io/badge/Portfolio-%2310f.svg?style=for-the-badge&logo=&logoColor=white" />
   </a>
-</div>
+</p>
 
----
+<h2 align="center">⚙️ Tech Stack</h2>
 
-## 🧠 Current Focus
+<details open>
+  <summary><b>Languages</b></summary>
+  <br/>
+  <p align="center">
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000" />
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+    <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />
+  </p>
+</details>
 
-- ✨ Playing around with dual-booting **Linux & Windows**  
-- ⚙️ Expanding my **homelab** (Vaultwarden, Jellyfin, Tailscale)  
----
+<details open>
+  <summary><b>Frontend</b></summary>
+  <br/>
+  <p align="center">
+    <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+    <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=000" />
+    <img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+    <img src="https://img.shields.io/badge/Framer%20Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" />
+    <img src="https://img.shields.io/badge/Recharts-22C55E?style=for-the-badge&logo=chartdotjs&logoColor=white" />
+    <img src="https://img.shields.io/badge/D3.js-F9A03C?style=for-the-badge&logo=d3dotjs&logoColor=000" />
+  </p>
+</details>
 
-## 🌐 Connect
+<details open>
+  <summary><b>Backend</b></summary>
+  <br/>
+  <p align="center">
+    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+    <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white" />
+    <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
+    <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />
+    <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=000" />
+    <img src="https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socketdotio&logoColor=white" />
+    <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" />
+  </p>
+</details>
 
-<div align="center">
-  <a href="https://www.linkedin.com/in/bryangunawan/"><img src="https://img.shields.io/badge/LinkedIn-0A0A0A?style=for-the-badge&logo=linkedin&logoColor=9EF6FF" /></a>
-  <a href="https://github.com/ManINeedToSleep"><img src="https://img.shields.io/badge/GitHub-0A0A0A?style=for-the-badge&logo=github&logoColor=9EF6FF" /></a>
-  <a href="https://twitter.com/BryanG20991"><img src="https://img.shields.io/badge/Twitter-0A0A0A?style=for-the-badge&logo=x&logoColor=9EF6FF" /></a>
-</div>
+<details>
+  <summary><b>Infrastructure</b></summary>
+  <br/>
+  <p align="center">
+    <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+    <img src="https://img.shields.io/badge/Neon-00E5FF?style=for-the-badge&logo=neon&logoColor=000" />
+    <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+    <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=000" />
+    <img src="https://img.shields.io/badge/Debian-A81D33?style=for-the-badge&logo=debian&logoColor=white" />
+  </p>
+</details>
+
+<details>
+  <summary><b>State, UI, Tooling</b></summary>
+  <br/>
+  <p align="center">
+    <img src="https://img.shields.io/badge/Zustand-18181B?style=for-the-badge&logo=react&logoColor=white" />
+    <img src="https://img.shields.io/badge/TanStack-FF4154?style=for-the-badge&logo=reactquery&logoColor=white" />
+    <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" />
+    <img src="https://img.shields.io/badge/OpenAI%20API-000000?style=for-the-badge&logo=openai&logoColor=white" />
+    <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=chainlink&logoColor=white" />
+  </p>
+</details>
 
 ---
 
@@ -96,6 +87,7 @@ Hey, I’m **Bryan Gunawan** (*aka ManINeedToSleep*),a **full-stack developer**,
   <em>“What is beauty, if it is not the progress that we bring into this world?”</em><br/>
   <em>– Bryan Gunawan</em>
 </div>
+
 
 
 
