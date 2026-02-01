@@ -1,7 +1,7 @@
 <h1 align="center">Bryan Gunawan</h1>
 <h3 align="center">A Passionate Full Stack/Web developer | Software Engineer Enthusiast</h3>
 
-<p align="center">Hello to everyone that's reading this! The name's Bryan, Bryan Gunawan. Ignore the username, haha, it's a little inside joke with me and those in my program. Anyways, I'm a <b>Full-Stack Software Engineer</b> that's been working with computers and websites since... 2023? Officially, that is. I've always been the type to do a lot with code since highschool as quoted my computer class teaacher, <b>"One of, if not, the best students I had in my computer class."</b> No glaze of course. But, this compliment had really pushed me to be better and strive for more in the tech industry. When it comes to the things I built, I always take note and importance of <b>Front-End</b> and <b>User Experience</b> whilst also making sure that my clients has their needs and wants built as they've imagined it to be. </p>
+<p align="center">Hello to everyone that's reading this! The name's <b>Bryan Gunawan</b>. Ignore the username, haha, it's a little inside joke with me and those in my program. Anyways, I'm a <b>Full-Stack Software Engineer</b> that's been working with computers and websites since... 2023? Officially, that is. I've always been the type to do a lot with code since highschool as quoted my computer class teaacher, <b>"One of, if not, the best students I had in my computer class."</b> No glaze of course. But, this compliment had really pushed me to be better and strive for more in the tech industry. When it comes to the things I built, I always take note and importance of <b>Front-End</b> and <b>User Experience</b> whilst also making sure that my clients has their needs and wants built as they've imagined it to be. </p>
 
 <h2 align="center"> Connect with me </h2>
 
@@ -87,6 +87,7 @@
   <em>“What is beauty, if it is not the progress that we bring into this world?”</em><br/>
   <em>– Bryan Gunawan</em>
 </div>
+
 
 
 
