@@ -16,18 +16,30 @@ export default function SkillsPanel({ capabilities }: SkillsPanelProps) {
         </p>
         <div className="flex flex-wrap gap-2 text-xs text-zinc-500">
           {[
+            "TypeScript",
+            "JavaScript",
+            "Python",
+            "SQL",
             "Next.js",
             "React",
-            "TypeScript",
             "Tailwind CSS",
             "Framer Motion",
+            "D3.js",
+            "Recharts",
             "Node.js",
-            "PostgreSQL",
-            "Prisma",
             "Firebase",
-            "Caching",
-            "Observability",
-            "Performance",
+            "Prisma",
+            "PostgreSQL",
+            "MySQL",
+            "Zustand",
+            "TanStack Query",
+            "Socket.io",
+            "OpenAI API",
+            "Vercel",
+            "Docker",
+            "Linux",
+            "Debian",
+            "Figma",
           ].map((item) => (
             <span
               key={item}

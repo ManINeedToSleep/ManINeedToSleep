@@ -40,12 +40,11 @@ export default function ProjectsPanel({ projects, onOpen }: ProjectsPanelProps) 
     <div className="space-y-8">
       <section className="space-y-4">
         <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
-          Quest Log
+          Projects
         </p>
-        <h2 className="text-2xl font-semibold">Projects with Personality</h2>
+        <h2 className="text-2xl font-semibold">Projects</h2>
         <p className="text-base text-zinc-600 dark:text-zinc-300">
-          Each project is a small system story: what broke, what got designed,
-          and what changed because of it.
+          Case studies focused on decisions, tradeoffs, and measurable outcomes.
         </p>
         <div className="flex flex-col gap-3">
           <label className="flex w-full items-center gap-2 rounded-full border border-white/50 bg-white/70 px-4 py-2 text-sm text-zinc-600 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.35)] backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-zinc-200">

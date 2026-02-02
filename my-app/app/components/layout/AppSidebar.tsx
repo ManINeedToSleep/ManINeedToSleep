@@ -38,16 +38,45 @@ export default function AppSidebar({ activeView, viewConfigs }: AppSidebarProps)
           Currently Into
         </p>
         <div className="mt-3 space-y-2 text-sm text-zinc-600 dark:text-zinc-300">
-          <p>Anime arcs with messy friendships.</p>
-          <p>Cozy RPGs and story-rich indies.</p>
-          <p>UI motion with intent and restraint.</p>
+          <p>Revamping my portfolio and resume.</p>
+          <p>Applying and improving my project storytelling.</p>
+          <p>Sharpening fundamentals and system design.</p>
         </div>
         <p className="mt-4 text-xs uppercase tracking-[0.2em] text-zinc-500">
           Availability
         </p>
         <div className="mt-2 space-y-1 text-sm text-zinc-600 dark:text-zinc-300">
+          <p>Available: Yes.</p>
           <p>Open to frontend roles.</p>
-          <p>Remote-first, UTC-5.</p>
+        </div>
+        <p className="mt-4 text-xs uppercase tracking-[0.2em] text-zinc-500">
+          Connect
+        </p>
+        <div className="mt-2 space-y-1 text-sm text-zinc-600 dark:text-zinc-300">
+          <a
+            className="block hover:text-zinc-900 dark:hover:text-white"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=bryangunawan.dev@gmail.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Email
+          </a>
+          <a
+            className="block hover:text-zinc-900 dark:hover:text-white"
+            href="https://www.linkedin.com/in/bryan-gunawan-a537132b9/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a
+            className="block hover:text-zinc-900 dark:hover:text-white"
+            href="https://github.com/manineedtosleep"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
         </div>
       </section>
     </aside>

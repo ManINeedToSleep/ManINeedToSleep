@@ -97,6 +97,26 @@ export default function OverviewPanel({
           </div>
         </div>
       </section>
+
+      <section className="space-y-5">
+        <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+          Education
+        </p>
+        <div className="rounded-2xl border border-white/40 bg-white/80 p-5 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.4)] backdrop-blur dark:border-white/10 dark:bg-white/5">
+          <div className="flex flex-wrap items-center justify-between gap-2 text-xs uppercase tracking-[0.2em] text-zinc-500">
+            <span>Furness Horace High School</span>
+            <span>Sep 2022</span>
+          </div>
+          <h3 className="mt-3 text-lg font-semibold">
+            High School Diploma, Coding
+          </h3>
+          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
+            Completed a two-year CS track focused on HTML, CSS, and JavaScript,
+            and served as a CS class teacher&apos;s assistant, helping classmates
+            with debugging and front-end fundamentals.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }
