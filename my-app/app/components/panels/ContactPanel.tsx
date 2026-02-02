@@ -11,24 +11,12 @@ export default function ContactPanel() {
           about craft, motion, and a little joy, we&apos;ll vibe.
         </p>
       </section>
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="rounded-2xl border border-white/40 bg-white/80 p-5 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.4)] backdrop-blur dark:border-white/10 dark:bg-white/5">
-          <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
-            Email
-          </p>
-          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
-            bryan@example.com
-          </p>
-        </div>
-        <div className="rounded-2xl border border-white/40 bg-white/80 p-5 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.4)] backdrop-blur dark:border-white/10 dark:bg-white/5">
-          <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
-            Links
-          </p>
-          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
-            GitHub · LinkedIn · Resume
-          </p>
-        </div>
-      </div>
+      <a
+        className="inline-flex items-center justify-center rounded-full border border-zinc-900/20 bg-zinc-900 px-5 py-2 text-sm text-white transition hover:-translate-y-0.5 hover:bg-zinc-900/90 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
+        href="mailto:bryangunawan.dev@gmail.com"
+      >
+        Compose email
+      </a>
     </div>
   );
 }

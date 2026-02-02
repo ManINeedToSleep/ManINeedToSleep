@@ -7,12 +7,36 @@ export default function SkillsPanel({ capabilities }: SkillsPanelProps) {
     <div className="space-y-8">
       <section className="space-y-4">
         <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
-          Capability Map
+          Capabilities
         </p>
-        <h2 className="text-2xl font-semibold">What I Like Building</h2>
+        <h2 className="text-2xl font-semibold">Scalable, Frontend-first Systems</h2>
         <p className="text-base text-zinc-600 dark:text-zinc-300">
-          Skills grouped by outcomes, with each project as proof of work.
+          I focus on front-end polish and UX, with an eye on scalability,
+          performance, and maintainability as systems grow.
         </p>
+        <div className="flex flex-wrap gap-2 text-xs text-zinc-500">
+          {[
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "Framer Motion",
+            "Node.js",
+            "PostgreSQL",
+            "Prisma",
+            "Firebase",
+            "Caching",
+            "Observability",
+            "Performance",
+          ].map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-white/60 bg-white/70 px-3 py-1 dark:border-white/10 dark:bg-white/5"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
       </section>
       <div className="grid gap-4 md:grid-cols-2">
         {capabilities.map((capability) => (

@@ -11,13 +11,12 @@ export default function AppSidebar({ activeView, viewConfigs }: AppSidebarProps)
       ? {
           label: "Project Detail",
           description: "Focused case study.",
-          emoji: "🧩",
           accent: "from-fuchsia-400/20 via-rose-400/10 to-transparent",
         }
       : viewConfigs.find((config) => config.id === activeView);
 
   return (
-    <aside className="flex flex-col gap-6">
+    <aside className="flex flex-col gap-6 lg:sticky lg:top-8 lg:self-start">
       <section className="relative overflow-hidden rounded-2xl border border-white/40 bg-white/80 p-5 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.4)] backdrop-blur dark:border-white/10 dark:bg-white/5">
         <span
           className={`absolute inset-0 bg-gradient-to-br opacity-70 ${
@@ -32,7 +31,6 @@ export default function AppSidebar({ activeView, viewConfigs }: AppSidebarProps)
         <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
           {currentView?.description}
         </p>
-        <p className="mt-4 text-2xl">{currentView?.emoji}</p>
         </div>
       </section>
       <section className="rounded-2xl border border-white/40 bg-white/80 p-5 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.4)] backdrop-blur dark:border-white/10 dark:bg-white/5">

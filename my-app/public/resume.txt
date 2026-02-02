@@ -1,0 +1,16 @@
+Bryan Gunawan
+Full-Stack / Web Developer • Software Engineer Enthusiast
+
+Summary
+Passionate full-stack and web developer with a strong focus on front-end polish
+and user experience. I love building web projects, solving problems (DSA and
+math), and continuously learning new technologies.
+
+Focus Areas
+- Front-end engineering and UX
+- System-focused UI and interaction design
+- Problem solving and algorithmic thinking
+
+Links
+- LinkedIn: https://www.linkedin.com/in/bryan-gunawan-a537132b9/
+- LeetCode: https://leetcode.com/u/manineedtosleep/

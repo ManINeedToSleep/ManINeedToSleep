@@ -27,7 +27,7 @@ const links: SocialLink[] = [
   },
   {
     label: "Email",
-    href: "mailto:bryan@example.com",
+    href: "mailto:bryangunawan.dev@gmail.com",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4">
         <path

@@ -19,7 +19,7 @@ export default function AppHeader({
           {viewConfigs.map((config) => (
             <button
               key={config.id}
-              className={`group relative flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.2em] transition ${
+              className={`group relative flex items-center gap-2 overflow-hidden rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.2em] transition ${
                 activeView === config.id
                   ? "border-zinc-900 bg-zinc-900 text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900"
                   : "border-zinc-300 text-zinc-700 hover:border-zinc-400 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500"
@@ -32,7 +32,6 @@ export default function AppHeader({
                   config.accent
                 } ${activeView === config.id ? "opacity-100" : ""}`}
               />
-              <span className="text-sm">{config.emoji}</span>
               {config.label}
             </button>
           ))}
