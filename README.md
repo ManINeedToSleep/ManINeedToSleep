@@ -12,7 +12,7 @@
   <a href="https://leetcode.com/u/manineedtosleep/">
     <img src="https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=LeetCode&logoColor=black" />
   </a>
-  <a href="#">
+  <a href="https://my-lgbodu4j0-manineedtosleeps-projects.vercel.app/">
     <img src="https://img.shields.io/badge/Portfolio-%2310f.svg?style=for-the-badge&logo=&logoColor=white" />
   </a>
 </p>
@@ -87,6 +87,7 @@
   <em>“What is beauty, if it is not the progress that we bring into this world?”</em><br/>
   <em>– Bryan Gunawan</em>
 </div>
+
 
 
 
