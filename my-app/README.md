@@ -25,6 +25,7 @@ Create a `.env.local` with:
 ```
 GMAIL_USER=your@gmail.com
 GMAIL_APP_PASSWORD=your_app_password
+CONTACT_TO=your@destination.com
 ```
 
 Then restart the dev server.

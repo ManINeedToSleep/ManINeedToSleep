@@ -60,6 +60,7 @@ export async function POST(request: Request) {
 
     const user = process.env.GMAIL_USER;
     const pass = process.env.GMAIL_APP_PASSWORD;
+    const recipient = process.env.CONTACT_TO || user;
 
     if (!user || !pass) {
       return NextResponse.json(
@@ -79,7 +80,7 @@ export async function POST(request: Request) {
 
     await transporter.sendMail({
       from: `"Portfolio Contact" <${user}>`,
-      to: user,
+      to: recipient,
       subject: subjectParts.join(" · "),
       text: [
         `Name: ${name?.trim() || "N/A"}`,
