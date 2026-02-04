@@ -33,7 +33,7 @@ export default function OverviewPanel({
         <div className="flex flex-wrap gap-3">
           <a
             className="rounded-full border border-zinc-300 bg-white/80 px-4 py-2 text-sm text-zinc-700 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.5)] backdrop-blur transition hover:-translate-y-0.5 hover:border-zinc-400 dark:border-white/10 dark:bg-white/5 dark:text-zinc-200"
-            href="/resume.txt"
+            href="/resume.pdf"
             download
           >
             Download my resume

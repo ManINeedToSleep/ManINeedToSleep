@@ -47,7 +47,7 @@ export default function ContactPanel() {
     }
   };
   return (
-    <div className="space-y-8">
+    <div id="contact" className="space-y-8">
       <section className="space-y-4">
         <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
           Contact
