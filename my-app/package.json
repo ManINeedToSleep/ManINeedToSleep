@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "portfolio-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,8 +12,10 @@
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
     "@react-three/postprocessing": "^3.0.4",
+    "firebase": "^12.8.0",
     "framer-motion": "^12.29.2",
     "next": "16.1.6",
+    "nodemailer": "^7.0.13",
     "postprocessing": "^6.38.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",
