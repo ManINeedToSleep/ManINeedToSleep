@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 type ContactPayload = {
   name?: string;
@@ -58,31 +58,27 @@ export async function POST(request: Request) {
       );
     }
 
-    const user = process.env.GMAIL_USER;
-    const pass = process.env.GMAIL_APP_PASSWORD;
-    const recipient = process.env.CONTACT_TO || user;
+    const apiKey = process.env.RESEND_API_KEY;
+    const from = process.env.RESEND_FROM;
+    const recipient = process.env.CONTACT_TO;
 
-    if (!user || !pass) {
+    if (!apiKey || !from || !recipient) {
       return NextResponse.json(
         { error: "Email service not configured." },
         { status: 500 }
       );
     }
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: { user, pass },
-    });
-
+    const resend = new Resend(apiKey);
     const subjectParts = ["Portfolio message"];
     if (name?.trim()) subjectParts.push(name.trim());
     if (company?.trim()) subjectParts.push(company.trim());
 
     console.log("[contact] sending to", recipient);
 
-    const result = await transporter.sendMail({
-      from: `"Portfolio Contact" <${user}>`,
-      to: recipient,
+    const { data, error } = await resend.emails.send({
+      from,
+      to: [recipient],
       subject: subjectParts.join(" · "),
       text: [
         `Name: ${name?.trim() || "N/A"}`,
@@ -92,8 +88,12 @@ export async function POST(request: Request) {
       ].join("\n"),
     });
 
-    console.log("[contact] sent", { messageId: result.messageId });
-    return NextResponse.json({ ok: true, messageId: result.messageId });
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    console.log("[contact] sent", { messageId: data?.id });
+    return NextResponse.json({ ok: true, messageId: data?.id });
   } catch (error) {
     console.error("[contact] send failed", error);
     return NextResponse.json(

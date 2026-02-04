@@ -15,10 +15,10 @@
     "firebase": "^12.8.0",
     "framer-motion": "^12.29.2",
     "next": "16.1.6",
-    "nodemailer": "^7.0.13",
     "postprocessing": "^6.38.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "resend": "^6.9.1",
     "three": "^0.182.0",
     "zustand": "^5.0.11"
   },
