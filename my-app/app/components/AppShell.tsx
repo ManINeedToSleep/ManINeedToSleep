@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { projects } from "../data/projects";
 import { useUIStore } from "../state/ui";
@@ -27,6 +27,36 @@ export default function AppShell() {
   const uiState = useUIStore((state) => state.state);
   const setView = useUIStore((state) => state.setView);
   const openProject = useUIStore((state) => state.openProject);
+  const [theme, setTheme] = useState<"lavender-night" | "lavender-mist">(
+    "lavender-night"
+  );
+
+  useEffect(() => {
+    const stored = localStorage.getItem("theme");
+    const prefersDark =
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initial =
+      stored === "lavender-night" || stored === "lavender-mist"
+        ? stored
+        : prefersDark
+          ? "lavender-night"
+          : "lavender-mist";
+    setTheme(initial);
+    document.documentElement.dataset.theme = initial;
+    document.documentElement.classList.toggle(
+      "dark",
+      initial === "lavender-night"
+    );
+  }, []);
+
+  const toggleTheme = () => {
+    const next =
+      theme === "lavender-night" ? "lavender-mist" : "lavender-night";
+    setTheme(next);
+    document.documentElement.dataset.theme = next;
+    document.documentElement.classList.toggle("dark", next === "lavender-night");
+    localStorage.setItem("theme", next);
+  };
 
   const currentProject = useMemo(() => {
     if (uiState.view !== "project_detail") {
@@ -51,7 +81,7 @@ export default function AppShell() {
   }, []);
 
   return (
-    <div className="relative min-h-screen overflow-hidden text-zinc-900 dark:text-zinc-100">
+    <div className="theme-transition relative min-h-screen overflow-hidden text-zinc-900 dark:text-zinc-100">
       <AppBackdrop />
       <div className="pointer-events-none fixed left-6 top-1/2 z-20 hidden -translate-y-1/2 lg:flex">
         <SocialRail />
@@ -65,6 +95,12 @@ export default function AppShell() {
           }
           onSelect={(view) => setView({ view })}
           viewConfigs={viewConfigs}
+          themeLabel={
+            theme === "lavender-night"
+              ? "Theme: Lavender"
+              : "Theme: Fuchsia"
+          }
+          onToggleTheme={toggleTheme}
         />
 
         <div className="grid gap-8 lg:grid-cols-[240px_1fr]">

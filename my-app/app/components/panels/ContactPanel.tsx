@@ -10,6 +10,7 @@ export default function ContactPanel() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log("[contact] submit");
     setStatus("sending");
     setErrorMessage(null);
 
@@ -22,6 +23,7 @@ export default function ContactPanel() {
     };
 
     try {
+      console.log("[contact] sending", payload);
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -35,11 +37,13 @@ export default function ContactPanel() {
 
       event.currentTarget.reset();
       setStatus("sent");
+      console.log("[contact] sent");
     } catch (error) {
       setStatus("error");
       setErrorMessage(
         error instanceof Error ? error.message : "Failed to send message."
       );
+      console.log("[contact] error", error);
     }
   };
   return (
@@ -87,6 +91,7 @@ export default function ContactPanel() {
           <textarea
             name="message"
             rows={5}
+            required
             className="rounded-xl border border-white/40 bg-white/70 px-3 py-2 text-sm text-zinc-700 outline-none transition focus:border-zinc-300 dark:border-white/10 dark:bg-white/5 dark:text-zinc-100"
             placeholder="What are you building? How can I help?"
           />
@@ -106,9 +111,10 @@ export default function ContactPanel() {
             {status === "error" && (errorMessage || "Something went wrong.")}
           </p>
           <button
-            className="inline-flex items-center justify-center rounded-full border border-zinc-900/20 bg-zinc-900 px-5 py-2 text-sm text-white transition hover:-translate-y-0.5 hover:bg-zinc-900/90 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
+            className="primary-cta inline-flex items-center justify-center rounded-full border border-zinc-900/20 bg-zinc-900 px-5 py-2 text-sm text-white transition hover:-translate-y-0.5 hover:bg-zinc-900/90 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
             type="submit"
             disabled={status === "sending"}
+            onClick={() => console.log("[contact] click")}
           >
             {status === "sending" ? "Sending..." : "Send message"}
           </button>

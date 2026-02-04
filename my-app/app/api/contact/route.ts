@@ -78,7 +78,9 @@ export async function POST(request: Request) {
     if (name?.trim()) subjectParts.push(name.trim());
     if (company?.trim()) subjectParts.push(company.trim());
 
-    await transporter.sendMail({
+    console.log("[contact] sending to", recipient);
+
+    const result = await transporter.sendMail({
       from: `"Portfolio Contact" <${user}>`,
       to: recipient,
       subject: subjectParts.join(" · "),
@@ -90,8 +92,10 @@ export async function POST(request: Request) {
       ].join("\n"),
     });
 
-    return NextResponse.json({ ok: true });
+    console.log("[contact] sent", { messageId: result.messageId });
+    return NextResponse.json({ ok: true, messageId: result.messageId });
   } catch (error) {
+    console.error("[contact] send failed", error);
     return NextResponse.json(
       { error: "Failed to send message." },
       { status: 500 }

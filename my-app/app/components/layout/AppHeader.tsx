@@ -4,12 +4,16 @@ type AppHeaderProps = {
   activeView: ViewConfig["id"];
   onSelect: (view: ViewConfig["id"]) => void;
   viewConfigs: ViewConfig[];
+  themeLabel: string;
+  onToggleTheme: () => void;
 };
 
 export default function AppHeader({
   activeView,
   onSelect,
   viewConfigs,
+  themeLabel,
+  onToggleTheme,
 }: AppHeaderProps) {
   return (
     <header className="rounded-3xl border border-white/40 bg-white/85 p-6 shadow-[0_30px_80px_-60px_rgba(15,23,42,0.7)] backdrop-blur dark:border-white/10 dark:bg-white/5">
@@ -19,9 +23,9 @@ export default function AppHeader({
           {viewConfigs.map((config) => (
             <button
               key={config.id}
-              className={`group relative flex items-center gap-2 overflow-hidden rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.2em] transition ${
+              className={`nav-pill group relative flex items-center gap-2 overflow-hidden rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.2em] transition ${
                 activeView === config.id
-                  ? "border-zinc-900 bg-zinc-900 text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900"
+                  ? "nav-pill--active border-zinc-900 bg-zinc-900 text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900"
                   : "border-zinc-300 text-zinc-700 hover:border-zinc-400 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500"
               }`}
               onClick={() => onSelect(config.id)}
@@ -37,9 +41,10 @@ export default function AppHeader({
           ))}
           <button
             className="rounded-full border border-zinc-300 px-4 py-2 text-xs font-semibold tracking-[0.2em] text-zinc-700 transition hover:border-zinc-400 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500"
+            onClick={onToggleTheme}
             type="button"
           >
-            Theme: Lavender
+            {themeLabel}
           </button>
         </div>
       </div>
