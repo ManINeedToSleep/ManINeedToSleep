@@ -11,15 +11,15 @@ const skillGroups = [
   },
   {
     category: "Frontend",
-    items: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "State Management"],
+    items: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "D3.js"],
   },
   {
     category: "Backend",
-    items: ["Node.js", "Firebase", "PostgreSQL", "Prisma", "REST APIs"],
+    items: ["Node.js", "Express", "PostgreSQL", "Redis", "GraphQL"],
   },
   {
     category: "Infrastructure",
-    items: ["Vercel", "Docker", "Git", "CI/CD", "Performance"],
+    items: ["Docker", "Vercel", "AWS", "CI/CD", "Git"],
   },
   {
     category: "Design",
@@ -31,22 +31,22 @@ const values = [
   {
     title: "Craft over speed",
     description:
-      "I build with care for structure and clarity. Thoughtful architecture, naming, and testing scale better than shortcuts.",
+      "I believe in taking the time to build things right. Clean architecture, thoughtful naming, and well-tested code compound over time.",
   },
   {
-    title: "Product-minded engineering",
+    title: "Design is engineering",
     description:
-      "Great interfaces are systems. I treat frontend architecture and UX as first-class engineering work.",
+      "Great interfaces are not decoration -- they are systems. I approach visual design with the same rigor I bring to backend architecture.",
   },
   {
-    title: "Accessible by default",
+    title: "Accessibility first",
     description:
-      "Inclusive design is part of the build. Semantic markup, keyboard flow, and clarity guide every feature.",
+      "Building for everyone is not optional. Semantic HTML, proper ARIA attributes, and keyboard navigation are part of every project.",
   },
   {
-    title: "Keep improving",
+    title: "Continuous learning",
     description:
-      "I stay curious and iterate. I learn from feedback, new tools, and real production constraints.",
+      "The best engineers stay curious. I regularly explore new tools, contribute to open source, and share what I learn.",
   },
 ]
 
@@ -91,22 +91,26 @@ export default function AboutContent() {
         >
           <div className="lg:col-span-3 space-y-6 text-base leading-relaxed text-secondary-foreground/70">
             <p>
-              I am a full-stack developer based in the United States, with roots in
-              Indonesia. I moved to America with the support of my parents to pursue
-              better opportunities, and that experience shaped how I approach my work:
-              steady, focused, and committed to building a stable future for my family.
+              I am a developer who sees software as a medium for creative expression.
+              Not in a loose, unstructured way -- but in the way a well-designed interface
+              can communicate care, or a clean API can make another developer smile.
             </p>
             <p>
-              My professional focus is full-stack development with strong attention to
-              frontend architecture, state management, and user-centered systems. I build
-              scalable applications with clean UI structure, solid performance, and
-              thoughtful workflows that respect the people using them.
+              My path into development started with curiosity about how the things I loved
+              were built. Anime interfaces that felt alive. Game menus that rewarded
+              exploration. Websites that made you slow down and notice the details. I wanted
+              to build things that created those same moments of recognition.
             </p>
             <p>
-              I work across modern web stacks including Next.js, React, TypeScript,
-              Tailwind CSS, Firebase, PostgreSQL, and Prisma. My projects span dashboards,
-              interactive systems, and AI-assisted tools, with a consistent focus on
-              clarity and reliability.
+              Today, my work sits at the intersection of engineering and design. I build
+              full-stack applications with a focus on frontend craft -- performance-conscious,
+              accessible, and visually intentional. I care deeply about the developer experience
+              of the code I write and the user experience of the products I ship.
+            </p>
+            <p>
+              When I am not writing code, I am probably studying game UI design patterns,
+              exploring new animation techniques, or thinking about how to make documentation
+              less painful.
             </p>
           </div>
 
@@ -118,10 +122,10 @@ export default function AboutContent() {
               </h3>
               <div className="space-y-4">
                 {[
-                  { label: "Location", value: "United States" },
+                  { label: "Location", value: "Available Worldwide" },
                   { label: "Focus", value: "Full-Stack / Frontend" },
-                  { label: "Languages", value: "English, Indonesian" },
-                  { label: "Specialty", value: "Frontend architecture & state" },
+                  { label: "Experience", value: "5+ Years" },
+                  { label: "Education", value: "Computer Science" },
                   { label: "Status", value: "Open to Opportunities" },
                 ].map((fact) => (
                   <div key={fact.label} className="flex items-start justify-between gap-4">
@@ -245,45 +249,6 @@ export default function AboutContent() {
               }`}
             />
           </div>
-
-          <div
-            className={`rounded-lg border border-border/30 bg-card p-6 md:p-8 transition-all duration-700 ${
-              inspirations.isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
-            <p className="text-base leading-relaxed text-secondary-foreground/70 mb-6">
-              My aesthetic and design philosophy draws from a mix of sources that might
-              seem eclectic -- but they all share a common thread of intentional craft:
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {[
-                {
-                  label: "Anime & Visual Novels",
-                  detail: "Panel composition, typography hierarchy, and the way interfaces can tell a story.",
-                },
-                {
-                  label: "Game UI Design",
-                  detail: "Warframe, Destiny, and other games that prove functional UI can be beautiful.",
-                },
-                {
-                  label: "Brutalist Web Design",
-                  detail: "The confidence to let structure speak. Grids, type, and negative space as primary tools.",
-                },
-              ].map((item) => (
-                <div key={item.label} className="flex flex-col gap-2">
-                  <span className="font-mono text-[10px] tracking-wider text-primary uppercase">
-                    {item.label}
-                  </span>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {item.detail}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* CTA to contact */}
           <div className="mt-12 flex items-center justify-center">
             <Link
