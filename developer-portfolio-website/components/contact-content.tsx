@@ -29,22 +29,22 @@ function useScrollReveal(threshold = 0.1) {
 const contactLinks = [
   {
     label: "Email",
-    value: "hello@bryangunawan.dev",
-    href: "mailto:hello@bryangunawan.dev",
+    value: "bryangunawan.dev@gmail.com",
+    href: "mailto:bryangunawan.dev@gmail.com",
     icon: Mail,
     description: "Best for project inquiries and formal communication.",
   },
   {
     label: "GitHub",
-    value: "github.com/bryangunawan",
-    href: "https://github.com",
+    value: "github.com/ManINeedToSleep",
+    href: "https://github.com/ManINeedToSleep",
     icon: Github,
     description: "Open source work and code samples.",
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/bryangunawan",
-    href: "https://linkedin.com",
+    value: "linkedin.com/in/bryan-gunawan-a537132b9",
+    href: "https://www.linkedin.com/in/bryan-gunawan-a537132b9/",
     icon: Linkedin,
     description: "Professional profile and network.",
   },

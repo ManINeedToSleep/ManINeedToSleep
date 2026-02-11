@@ -17,66 +17,35 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    period: "2024 -- Present",
-    role: "Senior Frontend Engineer",
-    company: "Company Name",
-    companyUrl: "#",
+    period: "Sep 2023 -- Present",
+    role: "Full-Stack Engineer & Technical Consultant",
+    company: "Launchpad Philly",
+    companyUrl: "https://www.launchpadphilly.com/",
     description:
-      "Leading frontend architecture and feature development for the core product. Working across the full frontend stack to deliver performant, accessible user experiences at scale. Collaborating with design and product teams to define technical direction.",
+      "Building and maintaining scalable web applications across frontend and backend systems. I contribute to architecture, ship production features, and collaborate with teams to deliver reliable, user-centered products.",
     achievements: [
-      "Architected a new component library used across 3 product verticals",
-      "Reduced bundle size by 40% through code splitting and lazy loading strategies",
-      "Mentored 4 junior engineers through structured pairing and code review",
-      "Led migration from legacy CSS to design token-based system",
+      "Implemented authentication flows, real-time features, and backend integrations",
+      "Built reusable UI components and frontend architecture for long-term scale",
+      "Partnered with product and engineering teams to guide technical decisions",
+      "Delivered production-ready features for client-facing applications",
     ],
-    tech: ["React", "TypeScript", "Next.js", "Tailwind", "Storybook"],
+    tech: ["React", "Next.js", "TypeScript", "Firebase", "PostgreSQL"],
     type: "work",
   },
   {
-    period: "2022 -- 2024",
-    role: "Full-Stack Developer",
-    company: "Previous Company",
-    companyUrl: "#",
+    period: "Jul 2024 -- Aug 2024",
+    role: "Software Engineering Intern",
+    company: "Bentley Systems",
+    companyUrl: "https://www.bentley.com/",
     description:
-      "Developed client-facing applications and internal tools. Contributed to architecture decisions and established testing practices. Worked directly with stakeholders to translate business requirements into technical solutions.",
+      "Worked on the Data Interactive Element Selector (D.I.E.S.), an internal tool for interacting with complex data elements. Built React and TypeScript components that supported selection, highlighting, and data manipulation with a focus on clarity and performance.",
     achievements: [
-      "Built internal dashboard that reduced manual reporting by 60%",
-      "Designed and implemented RESTful API serving 10K+ daily requests",
-      "Introduced end-to-end testing pipeline that caught 30% more bugs pre-deployment",
-      "Created developer onboarding documentation adopted by the entire team",
+      "Built interactive UI components for selecting and highlighting data elements",
+      "Improved feedback and usability for complex, data-heavy interfaces",
+      "Prioritized performance and clarity within a large engineering environment",
     ],
-    tech: ["Node.js", "React", "PostgreSQL", "Docker", "Jest"],
+    tech: ["React", "TypeScript", "UI Engineering", "Performance"],
     type: "work",
-  },
-  {
-    period: "2020 -- 2022",
-    role: "Frontend Developer",
-    company: "Earlier Company",
-    companyUrl: "#",
-    description:
-      "Built responsive web applications and contributed to the company design system. Collaborated closely with design teams to translate Figma prototypes into polished, accessible interfaces.",
-    achievements: [
-      "Developed 15+ responsive landing pages with 95+ Lighthouse scores",
-      "Contributed 20+ components to the shared design system",
-      "Implemented accessibility audit process that improved WCAG compliance",
-      "Built real-time data visualization dashboard for marketing analytics",
-    ],
-    tech: ["React", "JavaScript", "Sass", "REST APIs", "Figma"],
-    type: "work",
-  },
-  {
-    period: "2016 -- 2020",
-    role: "Bachelor of Computer Science",
-    company: "University",
-    description:
-      "Focused on software engineering, data structures, and human-computer interaction. Completed thesis on accessible web interface design patterns.",
-    achievements: [
-      "Graduated with honors",
-      "Teaching assistant for Web Development and Data Structures courses",
-      "Led student developer club with 50+ active members",
-    ],
-    tech: ["Java", "Python", "C++", "SQL", "Web Dev"],
-    type: "education",
   },
 ]
 
