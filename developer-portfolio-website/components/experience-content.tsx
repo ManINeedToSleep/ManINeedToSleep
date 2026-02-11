@@ -20,7 +20,7 @@ const experiences: Experience[] = [
     period: "Sep 2023 -- Present",
     role: "Full-Stack Engineer & Technical Consultant",
     company: "Launchpad Philly",
-    companyUrl: "https://www.launchpadphilly.com/",
+    companyUrl: "https://launchpadphilly.org/",
     description:
       "Building and maintaining scalable web applications across frontend and backend systems. I contribute to architecture, ship production features, and collaborate with teams to deliver reliable, user-centered products.",
     achievements: [

@@ -60,14 +60,39 @@ export default function ContactContent() {
     message: "",
   })
   const [focusedField, setFocusedField] = useState<string | null>(null)
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
+  const [statusMessage, setStatusMessage] = useState("")
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    // Form submission logic would go here
+    if (status === "sending") return
+
+    setStatus("sending")
+    setStatusMessage("")
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formState),
+      })
+
+      if (!response.ok) {
+        const data = (await response.json().catch(() => null)) as { error?: string } | null
+        throw new Error(data?.error || "Unable to send message.")
+      }
+
+      setStatus("success")
+      setStatusMessage("Thanks! Your message has been sent.")
+      setFormState({ name: "", email: "", subject: "", message: "" })
+    } catch (error) {
+      setStatus("error")
+      setStatusMessage(error instanceof Error ? error.message : "Unable to send message.")
+    }
   }
 
   return (
@@ -169,58 +194,23 @@ export default function ContactContent() {
                   >
                     Subject
                   </label>
-                  <select
+                  <input
                     id="subject"
                     name="subject"
+                    type="text"
                     value={formState.subject}
                     onChange={handleChange}
                     onFocus={() => setFocusedField("subject")}
                     onBlur={() => setFocusedField(null)}
                     required
-                    className="w-full appearance-none border-0 border-b border-border/30 bg-transparent py-3 text-sm text-foreground outline-none transition-all duration-300 focus:border-primary/60 cursor-pointer"
-                  >
-                    <option value="" className="bg-card text-muted-foreground">
-                      Select a topic...
-                    </option>
-                    <option value="project" className="bg-card text-foreground">
-                      Project Inquiry
-                    </option>
-                    <option value="freelance" className="bg-card text-foreground">
-                      Freelance Opportunity
-                    </option>
-                    <option value="fulltime" className="bg-card text-foreground">
-                      Full-Time Role
-                    </option>
-                    <option value="collab" className="bg-card text-foreground">
-                      Collaboration
-                    </option>
-                    <option value="other" className="bg-card text-foreground">
-                      Something Else
-                    </option>
-                  </select>
+                    placeholder=""
+                    className="w-full border-0 border-b border-border/30 bg-transparent py-3 text-sm text-foreground outline-none transition-all duration-300 placeholder:text-muted-foreground/60 focus:border-primary/60"
+                  />
                   <div
                     className={`absolute bottom-0 left-0 h-px bg-primary transition-all duration-500 ${
                       focusedField === "subject" ? "w-full" : "w-0"
                     }`}
                   />
-                  {/* Custom select arrow */}
-                  <div className="absolute right-0 top-3 pointer-events-none">
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                      className="text-muted-foreground"
-                    >
-                      <path
-                        d="M3 4.5L6 7.5L9 4.5"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
                 </div>
               </div>
 
@@ -268,13 +258,27 @@ export default function ContactContent() {
               >
                 <button
                   type="submit"
-                  className="group relative inline-flex items-center gap-3 overflow-hidden rounded-lg bg-primary px-8 py-3.5 font-display text-sm font-semibold tracking-wide text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
+                  disabled={status === "sending"}
+                  className="group relative inline-flex items-center gap-3 overflow-hidden rounded-lg bg-primary px-8 py-3.5 font-display text-sm font-semibold tracking-wide text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  <span className="relative z-10">Send Message</span>
+                  <span className="relative z-10">
+                    {status === "sending" ? "Sending..." : "Send Message"}
+                  </span>
                   <Send className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   {/* Hover shine effect */}
                   <div className="absolute inset-0 -translate-x-full bg-white/10 transition-transform duration-500 group-hover:translate-x-full skew-x-12" />
                 </button>
+                {status !== "idle" && (
+                  <p
+                    className={`mt-3 text-xs ${
+                      status === "success" ? "text-emerald-400" : "text-rose-400"
+                    }`}
+                    role="status"
+                    aria-live="polite"
+                  >
+                    {statusMessage}
+                  </p>
+                )}
               </div>
             </form>
           </div>
