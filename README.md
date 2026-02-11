@@ -12,7 +12,7 @@
   <a href="https://leetcode.com/u/manineedtosleep/">
     <img src="https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=LeetCode&logoColor=black" />
   </a>
-  <a href="https://my-lgbodu4j0-manineedtosleeps-projects.vercel.app/">
+  <a href="https://www.bryangunawan.com/">
     <img src="https://img.shields.io/badge/Portfolio-%2310f.svg?style=for-the-badge&logo=&logoColor=white" />
   </a>
 </p>

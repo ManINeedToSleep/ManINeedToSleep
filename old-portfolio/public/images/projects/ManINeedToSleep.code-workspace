@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "ManINeedToSleep",
+			"path": "../../../.."
+		},
+		{
+			"name": "prompts",
+			"path": "../../../../../../Downloads/my-app/prompts"
+		}
+	],
+	"settings": {}
+}
